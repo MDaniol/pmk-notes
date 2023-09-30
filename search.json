@@ -18,7 +18,7 @@
     "href": "index.html#wymagania-wstępne",
     "title": "Podstawy Metod Komputerowych w Obliczeniach Inżynierskich",
     "section": "Wymagania Wstępne",
-    "text": "Wymagania Wstępne\nZajęcia prowadzone są w całości z wykorzystaniem notatników Google Colab na indywidualnym koncie studenta. Zachęcamy jednak do korzystania z IDE takich jak: - (Visual Studio Code)[https://code.visualstudio.com/] (dla bardziej zaawansowanych) - (Spyder)[https://www.spyder-ide.org/] (dla bardziej początkujących)"
+    "text": "Wymagania Wstępne\nZajęcia prowadzone są w całości z wykorzystaniem notatników Google Colab na indywidualnym koncie studenta. Zachęcamy jednak do korzystania z IDE takich jak:\n\nVisual Studio Code - dla bardziej zaawansowanych - z bardzo dużymi możliwościami konfiguracji,\nSpyder dla bardziej początkujących, z dużą ilością dostępnych bibliotek, łatwiejsze w instalacji (szczególnie na Windowsie)"
   },
   {
     "objectID": "index.html#zakres-tematyczny",
