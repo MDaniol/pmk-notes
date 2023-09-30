@@ -33,15 +33,20 @@ website:
     contents:
       - href: index.qmd
         text: Na początek
-      - explore.qmd
+       
+      - href: lab1.qmd
+        text: Laboratorium 1
+
       - section: quarto-workflows/index.qmd
+        text: Materiały Pomocnicze
         contents: 
           - quarto-workflows/browser.md
           - quarto-workflows/rstudio.qmd
           - quarto-workflows/jupyter.md 
-      - learning-more.qmd
+      - href: learning-more.qmd
+        text: Dodatkowe Źródła
       - href: transition-from-rmarkdown.qmd
-        text: Transition from Rmd
+        text: Przykładowe projekty
 
 
 format:
