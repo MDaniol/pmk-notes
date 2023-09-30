@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -216,14 +250,71 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="obliczenia-numeryczne-w-języku-python" class="level2">
 <h2 class="anchored" data-anchor-id="obliczenia-numeryczne-w-języku-python">Obliczenia numeryczne w języku Python</h2>
+<p>Obliczenia numeryczne odgrywają kluczową rolę w wielu dziedzinach nauki i inżynierii. Python, dzięki swoim bibliotekom i cechom języka, stał się popularnym wyborem do przeprowadzania obliczeń numerycznych. Oto kilka powodów, dla których Python jest często wybierany do tego celu:</p>
+<pre><code>**Czytelność**: Składnia Pythona jest przejrzysta i zwięzła, co pozwala na łatwe pisanie i analizę kodu.
+
+**Biblioteki**: Python posiada bogaty zestaw bibliotek do obliczeń numerycznych, takich jak:
+    NumPy: Biblioteka do obliczeń numerycznych, oferująca wsparcie dla dużych tablic i macierzy wielowymiarowych oraz zestaw funkcji matematycznych do ich operowania.
+    SciPy: Oparta na NumPy, jest to biblioteka służąca do bardziej zaawansowanych obliczeń i algorytmów naukowych.
+    Pandas: Biblioteka do analizy danych, która dostarcza struktury danych i funkcje niezbędne do czyszczenia, agregacji i analizy danych.
+
+**Interaktywność**: Narzędzia takie jak Jupyter Notebook pozwalają na interaktywne eksplorowanie danych i obliczeń, co jest niezmiernie użyteczne w analizie naukowej.
+
+Integracja z innymi językami: Python może być łatwo zintegrowany z kodem napisanym w językach takich jak C, C++ czy Fortran, co pozwala na łączenie szybkości tych języków z elastycznością Pythona.
+
+**Wizualizacja Danych**: Biblioteki takie jak Matplotlib, Seaborn czy Plotly umożliwiają tworzenie zaawansowanych wizualizacji, które są kluczowe do analizy wyników obliczeń numerycznych.
+
+**Wspólnota**: Python ma ogromną społeczność, która stale tworzy i udostępnia nowe narzędzia, biblioteki i zasoby do obliczeń numerycznych.
+
+**Wszechstronność**: Poza obliczeniami numerycznymi, Python jest językiem ogólnego zastosowania, co oznacza, że można go używać również do web developmentu, automatyki, analizy danych, sztucznej inteligencji i wielu innych zastosowań. Dzięki temu badacze i inżynierowie mogą korzystać z jednego języka do wielu różnych zadań.
+
+**Otwarte oprogramowanie**: Python jest językiem open source, co oznacza, że jest dostępny za darmo i ma dużą społeczność deweloperów pracujących nad jego rozwojem.</code></pre>
 </section>
 <section id="podstawy-pythona" class="level2">
 <h2 class="anchored" data-anchor-id="podstawy-pythona">Podstawy Pythona</h2>
 <section id="czym-jest-python-i-jak-działa" class="level3">
 <h3 class="anchored" data-anchor-id="czym-jest-python-i-jak-działa">Czym jest Python i jak działa</h3>
+<p>Python to wysokopoziomowy język programowania stworzony przez Guido van Rossuma i po raz pierwszy opublikowany w 1991 roku. Charakteryzuje się czytelną składnią, która pozwala programistom wyrażać koncepty w mniejszej ilości kodu niż w językach takich jak C++ czy Java.</p>
+<p>Działanie Pythona na poziomie szczegółów można opisać w kilku kluczowych krokach. W skrócie, działanie Pythona polega na tym, że kod źródłowy jest interpretowany przez interpreter Pythona w kod bajtowy, który następnie jest wykonywany przez maszynę wirtualną Pythona.</p>
+<p>Oto bardziej szczegółowy przegląd tego, jak to działa:</p>
+<pre><code>1. **Kod źródłowy**: Wszystko zaczyna się od kodu źródłowego, który piszesz w pliku .py.
+
+2. **Kompilacja do kodu bajtowego:** Gdy uruchamiasz skrypt Pythona, interpreter (zazwyczaj CPython, który jest standardową implementacją Pythona) kompiluje ten kod źródłowy w kod bajtowy. Kod bajtowy to niskopoziomowe, platformowo niezależne przedstawienie twojego kodu źródłowego. Zostaje on zapisany w plikach .pyc w katalogu __pycache__.
+
+**Maszyna wirtualna Pythona (PVM):** Po skompilowaniu kodu, kod bajtowy jest przekazywany do Maszyny Wirtualnej Pythona (PVM). To tu właściwe wykonanie kodu ma miejsce. PVM interpretuje i wykonuje kod bajtowy linia po linii.
+
+**Zarządzanie pamięcią:** Python automatycznie zarządza pamięcią dzięki mechanizmowi zwanej "garbage collection". Python posiada wbudowany licznik odniesień, który śledzi liczbę odniesień do każdego obiektu w pamięci. Gdy liczba odniesień do obiektu spada do zera, pamięć zajmowana przez obiekt jest automatycznie zwalniana. Dodatkowo, cykliczne odniesienia (gdzie obiekty odnoszą się nawzajem, ale nie są dostępne z żadnej innej części kodu) są wykrywane przez garbage collector i odpowiednio czyszczone.
+
+**Rozszerzenia w języku C:** Jednym z mocnych stron Pythona jest jego zdolność do integrowania się z językami niższego poziomu, takimi jak C. Możesz pisać rozszerzenia w C, które są potem dostępne jako moduły w Pythonie. To pozwala na pisania bardziej wydajnych fragmentów kodu w C i korzystania z nich w Pythonie.
+
+**Biblioteki standardowe:** Python ma bogate biblioteki standardowe, które oferują funkcje dla wielu powszechnych zadań, od pracy z plikami i sieciami po analizę danych i tworzenie interfejsów graficznych.
+
+**Interfejs API C:** Python ma dobrze zdefiniowany API dla języka C, co pozwala na tworzenie rozszerzeń w C oraz na osadzanie interpretera Pythona w aplikacjach napisanych w C.</code></pre>
 </section>
 <section id="funkcje-i-przekazywanie-argumentów" class="level3">
 <h3 class="anchored" data-anchor-id="funkcje-i-przekazywanie-argumentów">Funkcje i przekazywanie argumentów</h3>
+<p>W języku Python najprostsza deklaracja funkcji wygląda następująco:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> my_first_function():</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Funkcja ta nie przyjmuje ani nie zwraca niczego.</p>
+<p>Funkcje mogą przyjmowac argumenty:</p>
+<p><strong>Argumenty pozycyjne:</strong> Są to najczęściej używane argumenty. Przekazujesz je w kolejności, w jakiej są wymienione w definicji funkcji.</p>
+<p>\</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> funkcja(a, b, c):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(a, b, c)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>funkcja(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>\</p>
+<p><strong>Argumenty nazwane</strong> (keyword arguments): Przekazujemy wartość, wskazując nazwę argumentu.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>funkcja(a<span class="op">=</span><span class="dv">1</span>, c<span class="op">=</span><span class="dv">3</span>, b<span class="op">=</span><span class="dv">2</span>)  <span class="co"># 1 2 3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>\</p>
+<p><strong>Domyślne wartości argumentów</strong>: Możesz ustawić domyślne wartości dla niektórych (lub wszystkich) argumentów.</p>
+<p>\</p>
+<pre><code>def funkcja(a, b=2, c=3):
+    print(a, b, c)
+
+funkcja(1)  # 1 2 3
+funkcja(1, c=4)  # 1 2 4</code></pre>
 </section>
 <section id="pętle" class="level3">
 <h3 class="anchored" data-anchor-id="pętle">Pętle</h3>
