@@ -34,7 +34,7 @@ website:
       - href: index.qmd
         text: Na początek
        
-      - href: lab1.qmd
+      - href: labs/lab1.qmd
         text: Laboratorium 1
 
       - section: quarto-workflows/index.qmd
