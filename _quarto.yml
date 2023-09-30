@@ -16,16 +16,16 @@ website:
     logo: "images/openscapes_hex.png"
     pinned: true
     align: center
-    tools: 
-      - icon: globe
-        href: https://openscapes.org
-        text: "Openscapes.org"
-      - icon: github
-        href: https://github.com/openscapes/quarto-website-tutorial
-        text: "Quarto website tutorial"
-      - icon: twitter
-        href: https://twitter.com/openscapes
-        text: "Openscapes Twitter"         
+    # tools: 
+      # - icon: globe
+      #   href: https://openscapes.org
+      #   text: "Openscapes.org"
+      # - icon: github
+      #   href: https://github.com/openscapes/quarto-website-tutorial
+      #   text: "Quarto website tutorial"
+      # - icon: twitter
+      #   href: https://twitter.com/openscapes
+      #   text: "Openscapes Twitter"         
 
     style: "docked"
     search: true
