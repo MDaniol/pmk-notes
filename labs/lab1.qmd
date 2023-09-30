@@ -1,0 +1,65 @@
+# Laboratorium 1
+
+## Zakres Tematyczny
+
+1. Wprowadzenie w temat obliczeń numerycznych w języku Python
+2. Podstawy Pythona - Przypomnienie
+3. Podstawy użycia bibliotek:
+   1. Numpy
+   2. SciPy
+   3. MatPlotLib
+4. Typy Danych w Numpy
+5. Błędy numeryczne i ich propagacja
+6. Biblioteka PyTorch
+
+## Obliczenia numeryczne w języku Python
+
+## Podstawy Pythona
+
+### Czym jest Python i jak działa
+
+### Funkcje i przekazywanie argumentów
+
+### Pętle
+
+### Zadania 
+
+#### Zadanie 1 - Kalkulator Oszczędnościowy
+Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.
+
+**Wymagania:**
+
+1. Użytkownik powinien mieć możliwość podania początkowej kwoty oszczędności (może to być 0).
+2. Użytkownik powinien podać miesięczną kwotę, którą planuje oszczędzać.
+3. Użytkownik powinien podać roczne oprocentowanie swojego konta oszczędnościowego (np. 3% oznaczać będzie 0.03).
+4. Użytkownik powinien podać liczbę lat, przez które planuje oszczędzać.
+
+**Twoim zadaniem jest:**
+
+1. Obliczenie końcowej sumy oszczędności po określonym czasie, uwzględniając oprocentowanie.
+2. Wykorzystanie odpowiednich typów danych w Pythonie do reprezentowania tych wartości (np. float dla kwot i oprocentowania, int dla liczby lat).
+
+**Formuła oszczędności z oprocentowaniem składanym miesięcznie:**
+
+$$A = P \left(1 + \frac{r}{n}\right)^{nt} + PMT \left[ \frac{\left(1 + \frac{r}{n}\right)^{nt} - 1}{\frac{r}{n}} \right]$$
+
+Gdzie:
+
+- A to końcowa suma oszczędności.
+- P to początkowa suma oszczędności.
+- r to roczna stopa procentowa (jako ułamek, np. 3% to 0.03).
+- n to liczba okresów kapitalizacji w ciągu roku (dla kapitalizacji miesięcznej n=12n=12).
+- t to liczba lat oszczędzania.
+- PMT to stała miesięczna wpłata.
+
+
+
+## Podstawy użycia bibliotek
+
+### Numpy
+### SciPy
+### MatPlotLib
+
+## Błędy numeryczne i ich propagacja
+
+## Biblioteka Pytorch
