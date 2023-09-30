@@ -10,8 +10,9 @@ Strona powstała w zamyśle jako pomoc dydaktyczna dla studentów biorących udz
 ## Wymagania Wstępne
 
 Zajęcia prowadzone są w całości z wykorzystaniem notatników Google Colab na indywidualnym koncie studenta. Zachęcamy jednak do korzystania z IDE takich jak:
-- (Visual Studio Code)[https://code.visualstudio.com/] (dla bardziej zaawansowanych)
-- (Spyder)[https://www.spyder-ide.org/] (dla bardziej początkujących)
+
+- [Visual Studio Code](https://code.visualstudio.com/) - dla bardziej zaawansowanych - z bardzo dużymi możliwościami konfiguracji, 
+- [Spyder](https://www.spyder-ide.org/) dla bardziej początkujących, z dużą ilością dostępnych bibliotek, łatwiejsze w instalacji (szczególnie na Windowsie)
 
 ## Zakres Tematyczny
 
