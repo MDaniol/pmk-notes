@@ -16,24 +16,25 @@
 
 Obliczenia numeryczne odgrywają kluczową rolę w wielu dziedzinach nauki i inżynierii. Python, dzięki swoim bibliotekom i cechom języka, stał się popularnym wyborem do przeprowadzania obliczeń numerycznych. Oto kilka powodów, dla których Python jest często wybierany do tego celu:
 
-    **Czytelność**: Składnia Pythona jest przejrzysta i zwięzła, co pozwala na łatwe pisanie i analizę kodu.
+**Czytelność:** Składnia Pythona jest przejrzysta i zwięzła, co pozwala na łatwe pisanie i analizę kodu.
 
-    **Biblioteki**: Python posiada bogaty zestaw bibliotek do obliczeń numerycznych, takich jak:
-        NumPy: Biblioteka do obliczeń numerycznych, oferująca wsparcie dla dużych tablic i macierzy wielowymiarowych oraz zestaw funkcji matematycznych do ich operowania.
-        SciPy: Oparta na NumPy, jest to biblioteka służąca do bardziej zaawansowanych obliczeń i algorytmów naukowych.
-        Pandas: Biblioteka do analizy danych, która dostarcza struktury danych i funkcje niezbędne do czyszczenia, agregacji i analizy danych.
+**Biblioteki**: Python posiada bogaty zestaw bibliotek do obliczeń numerycznych, takich jak:
 
-    **Interaktywność**: Narzędzia takie jak Jupyter Notebook pozwalają na interaktywne eksplorowanie danych i obliczeń, co jest niezmiernie użyteczne w analizie naukowej.
+- NumPy: Biblioteka do obliczeń numerycznych, oferująca wsparcie dla dużych tablic i macierzy wielowymiarowych oraz zestaw funkcji matematycznych do ich operowania.
+- SciPy: Oparta na NumPy, jest to biblioteka służąca do bardziej zaawansowanych obliczeń i algorytmów naukowych.
+- Pandas: Biblioteka do analizy danych, która dostarcza struktury danych i funkcje niezbędne do czyszczenia, agregacji i analizy danych.
 
-    Integracja z innymi językami: Python może być łatwo zintegrowany z kodem napisanym w językach takich jak C, C++ czy Fortran, co pozwala na łączenie szybkości tych języków z elastycznością Pythona.
+**Interaktywność**: Narzędzia takie jak Jupyter Notebook pozwalają na interaktywne eksplorowanie danych i obliczeń, co jest niezmiernie użyteczne w analizie naukowej.
 
-    **Wizualizacja Danych**: Biblioteki takie jak Matplotlib, Seaborn czy Plotly umożliwiają tworzenie zaawansowanych wizualizacji, które są kluczowe do analizy wyników obliczeń numerycznych.
+**Integracja z innymi językami:** Python może być łatwo zintegrowany z kodem napisanym w językach takich jak C, C++ czy Fortran, co pozwala na łączenie szybkości tych języków z elastycznością Pythona.
 
-    **Wspólnota**: Python ma ogromną społeczność, która stale tworzy i udostępnia nowe narzędzia, biblioteki i zasoby do obliczeń numerycznych.
+**Wizualizacja Danych**: Biblioteki takie jak Matplotlib, Seaborn czy Plotly umożliwiają tworzenie zaawansowanych wizualizacji, które są kluczowe do analizy wyników obliczeń numerycznych.
 
-    **Wszechstronność**: Poza obliczeniami numerycznymi, Python jest językiem ogólnego zastosowania, co oznacza, że można go używać również do web developmentu, automatyki, analizy danych, sztucznej inteligencji i wielu innych zastosowań. Dzięki temu badacze i inżynierowie mogą korzystać z jednego języka do wielu różnych zadań.
+**Wspólnota**: Python ma ogromną społeczność, która stale tworzy i udostępnia nowe narzędzia, biblioteki i zasoby do obliczeń numerycznych.
 
-    **Otwarte oprogramowanie**: Python jest językiem open source, co oznacza, że jest dostępny za darmo i ma dużą społeczność deweloperów pracujących nad jego rozwojem.
+**Wszechstronność:** Poza obliczeniami numerycznymi, Python jest językiem ogólnego zastosowania, co oznacza, że można go używać również do web developmentu, automatyki, analizy danych, sztucznej inteligencji i wielu innych zastosowań. Dzięki temu badacze i inżynierowie mogą korzystać z jednego języka do wielu różnych zadań.
+
+**Otwarte oprogramowanie**: Python jest językiem open source, co oznacza, że jest dostępny za darmo i ma dużą społeczność deweloperów pracujących nad jego rozwojem.
 
 ## Podstawy Pythona
 
@@ -46,19 +47,19 @@ Działanie Pythona na poziomie szczegółów można opisać w kilku kluczowych k
 
 Oto bardziej szczegółowy przegląd tego, jak to działa:
 
-    1. **Kod źródłowy**: Wszystko zaczyna się od kodu źródłowego, który piszesz w pliku .py.
+1. **Kod źródłowy**: Wszystko zaczyna się od kodu źródłowego, który piszesz w pliku .py.
 
-    2. **Kompilacja do kodu bajtowego:** Gdy uruchamiasz skrypt Pythona, interpreter (zazwyczaj CPython, który jest standardową implementacją Pythona) kompiluje ten kod źródłowy w kod bajtowy. Kod bajtowy to niskopoziomowe, platformowo niezależne przedstawienie twojego kodu źródłowego. Zostaje on zapisany w plikach .pyc w katalogu __pycache__.
+2. **Kompilacja do kodu bajtowego:** Gdy uruchamiasz skrypt Pythona, interpreter (zazwyczaj CPython, który jest standardową implementacją Pythona) kompiluje ten kod źródłowy w kod bajtowy. Kod bajtowy to niskopoziomowe, platformowo niezależne przedstawienie twojego kodu źródłowego. Zostaje on zapisany w plikach .pyc w katalogu __pycache__.
 
-    **Maszyna wirtualna Pythona (PVM):** Po skompilowaniu kodu, kod bajtowy jest przekazywany do Maszyny Wirtualnej Pythona (PVM). To tu właściwe wykonanie kodu ma miejsce. PVM interpretuje i wykonuje kod bajtowy linia po linii.
+3. **Maszyna wirtualna Pythona (PVM):** Po skompilowaniu kodu, kod bajtowy jest przekazywany do Maszyny Wirtualnej Pythona (PVM). To tu właściwe wykonanie kodu ma miejsce. PVM interpretuje i wykonuje kod bajtowy linia po linii.
 
-    **Zarządzanie pamięcią:** Python automatycznie zarządza pamięcią dzięki mechanizmowi zwanej "garbage collection". Python posiada wbudowany licznik odniesień, który śledzi liczbę odniesień do każdego obiektu w pamięci. Gdy liczba odniesień do obiektu spada do zera, pamięć zajmowana przez obiekt jest automatycznie zwalniana. Dodatkowo, cykliczne odniesienia (gdzie obiekty odnoszą się nawzajem, ale nie są dostępne z żadnej innej części kodu) są wykrywane przez garbage collector i odpowiednio czyszczone.
+4. **Zarządzanie pamięcią:** Python automatycznie zarządza pamięcią dzięki mechanizmowi zwanej "garbage collection". Python posiada wbudowany licznik odniesień, który śledzi liczbę odniesień do każdego obiektu w pamięci. Gdy liczba odniesień do obiektu spada do zera, pamięć zajmowana przez obiekt jest automatycznie zwalniana. Dodatkowo, cykliczne odniesienia (gdzie obiekty odnoszą się nawzajem, ale nie są dostępne z żadnej innej części kodu) są wykrywane przez garbage collector i odpowiednio czyszczone.
 
-    **Rozszerzenia w języku C:** Jednym z mocnych stron Pythona jest jego zdolność do integrowania się z językami niższego poziomu, takimi jak C. Możesz pisać rozszerzenia w C, które są potem dostępne jako moduły w Pythonie. To pozwala na pisania bardziej wydajnych fragmentów kodu w C i korzystania z nich w Pythonie.
+5. **Rozszerzenia w języku C:** Jednym z mocnych stron Pythona jest jego zdolność do integrowania się z językami niższego poziomu, takimi jak C. Możesz pisać rozszerzenia w C, które są potem dostępne jako moduły w Pythonie. To pozwala na pisania bardziej wydajnych fragmentów kodu w C i korzystania z nich w Pythonie.
 
-    **Biblioteki standardowe:** Python ma bogate biblioteki standardowe, które oferują funkcje dla wielu powszechnych zadań, od pracy z plikami i sieciami po analizę danych i tworzenie interfejsów graficznych.
+6. **Biblioteki standardowe:** Python ma bogate biblioteki standardowe, które oferują funkcje dla wielu powszechnych zadań, od pracy z plikami i sieciami po analizę danych i tworzenie interfejsów graficznych.
 
-    **Interfejs API C:** Python ma dobrze zdefiniowany API dla języka C, co pozwala na tworzenie rozszerzeń w C oraz na osadzanie interpretera Pythona w aplikacjach napisanych w C.
+7. **Interfejs API C:** Python ma dobrze zdefiniowany API dla języka C, co pozwala na tworzenie rozszerzeń w C oraz na osadzanie interpretera Pythona w aplikacjach napisanych w C.
 
 ### Funkcje i przekazywanie argumentów
 W języku Python najprostsza deklaracja funkcji wygląda następująco:
@@ -74,7 +75,7 @@ Funkcje mogą przyjmowac argumenty:
 
 **Argumenty pozycyjne:** Są to najczęściej używane argumenty. Przekazujesz je w kolejności, w jakiej są wymienione w definicji funkcji.
 
-\\
+\
 
 ```python
 def funkcja(a, b, c):
@@ -83,7 +84,7 @@ def funkcja(a, b, c):
 funkcja(1, 2, 3)  # 1 2 3
 ```
 
-\\
+\
 
 **Argumenty nazwane** (keyword arguments): Przekazujemy wartość, wskazując nazwę argumentu.
 
@@ -91,13 +92,13 @@ funkcja(1, 2, 3)  # 1 2 3
 funkcja(a=1, c=3, b=2)  # 1 2 3
 ```
 
-\\
+\
 
 **Domyślne wartości argumentów**: Możesz ustawić domyślne wartości dla niektórych (lub wszystkich) argumentów.
 
-\\
+\
 
-```
+```python
 def funkcja(a, b=2, c=3):
     print(a, b, c)
 
