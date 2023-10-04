@@ -123,7 +123,7 @@ funkcja(1, c=4)  # 1 2 4
 
 Załóżmy, że chcemy dodać elementy dwóch dużych list do siebie. Możemy to zrobić na dwa sposoby:
 
-1. Tradycyjnie:
+1. **Tradycyjnie:**
 
 ```python
 list1 = [1, 2, 3, 4, 5]
@@ -136,7 +136,7 @@ for i in range(len(list1)):
 print(result)
 ```
 
-1. Z wykorzystaniem biblioteki NumPy i wektoryzacji:
+2. **Z wykorzystaniem biblioteki NumPy i wektoryzacji:**
 
 ```python
 import numpy as np
@@ -191,9 +191,76 @@ W rzeczywistości, proces jest bardziej skomplikowany i zoptymalizowany pod kąt
 W kontekście metod numerycznych, `NumPy` dostarcza solidne narzędzie do szybkiego i wydajnego przetwarzania danych oraz implementacji algorytmów numerycznych w Pythonie.
 
 ### Biblioteka Scipy
+Drugą z wykorzystywanych przez nas bibliotek jest biblioteka SciPy - rozbudowana biblioteka służąca do obliczeń naukowych i inżynierskich w języku Python. Biblioteka ta bazuje na NumPy, ale dodaje sporo rzeczy "od siebie". Przejdźmy przez jej najważniejsze moduły:
 
+1. Moduł do optymalizacji (`scipy.optimize`): Narzędzia do znajdowania korzeni równań i minimalizacji funkcji.
 
+2. Moduł do algebry liniowej (`scipy.linalg`): Funkcje do rozwiązywania równań liniowych, obliczania wartości własnych itp.
 
+3. Moduł do przetwarzania sygnałów (`scipy.signal`): Narzędzia do analizy, projektowania i przetwarzania sygnałów.
+
+4. Moduł do analizy obrazów (`scipy.ndimage`): Funkcje do przetwarzania i analizy obrazów.
+
+5. Moduł do statystyki (`scipy.stats`): Obszerna kolekcja funkcji do statystyki i rozkładów prawdopodobieństwa.
+
+6. Moduł do całkowania (`scipy.integrate`): Narzędzia do całkowania funkcji i równań różniczkowych.
+
+::: {.callout-tip}
+## Przykład obliczeń z wykorzystaniem SciPy
+
+Załóżmy, że chcemy znaleźc minimum jakiejś funkcji. Zobaczmy jak możemy to zrobic z wykorzystaniem biblioteki SciPy:
+
+```python
+from scipy.optimize import minimize
+
+# Definiujemy funkcję
+def f(x):
+    return x**2 + 6*x + 5
+
+# Znajdujemy minimum funkcji zaczynając od punktu x=0
+result = minimize(f, x0=0)
+
+# Wypisujemy wynik
+print(f"Minimum value of f(x) is {result.fun} at x = {result.x}")
+```
+:::
+
+Przeanalizujmy jeszcze jeden, bardzo ważny przykład, który łączy w sobie wykorzystanie biblioteki SciPy oraz pewne specyficzne cechy wykonywania obliczeń numerycznych.
+
+::: {.callout-tip}
+## Przykład rozwiązywania układu równań
+
+W szpitalu są dwie grupy pacjentów: osoby z grypą i osoby z zatruciem pokarmowym. Pierwszego dnia przyszło 5 pacjentów z grypą i 3 z zatruciem pokarmowym. Wszyscy razem otrzymali 23 tabletki paracetamolu. Drugiego dnia przyszło 2 osoby z grypą i 3 z zatruciem pokarmowym, a łączna liczba tabletek paracetamolu, które dostali, wynosiła 13. Jaką dawkę paracetamolu otrzymuje pacjent z grypą oraz pacjent z zatruciem pokarmowym?
+
+Załóżmy, że:
+
+- Dawka dla pacjenta z grypą to $x$ tabletek.
+- Dawka dla pacjenta z zatruciem to $y$ tabletek.
+
+Na podstawie powyższych informacji uzyskujemy układ równań:
+
+$5x+3y=23$ (pierwszy dzień)
+$2x+3y=13$ (drugi dzień)
+
+Rozwiążmy zatem ten układ równań, korzystając z biblioteki SciPy:
+
+```python
+import numpy as np
+from scipy.linalg import solve
+
+# Macierz współczynników
+A = np.array([[5, 3], [2, 3]])
+
+# Wektor wyników
+b = np.array([23, 13])
+
+# Rozwiązujemy układ równań
+x, y = solve(A, b)
+
+print(f"Dawka dla pacjenta z grypą: {x:.2f} tabletki")
+print(f"Dawka dla pacjenta z zatruciem pokarmowym: {y:.2f} tabletki")
+```
+:::
 
 ### Biblioteka MatPlotLib
 
