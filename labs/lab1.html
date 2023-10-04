@@ -432,8 +432,26 @@ Przykład kwantyzacji
 <h4 class="anchored" data-anchor-id="zadanie-1---epsilon-maszynowy">Zadanie 1 - Epsilon Maszynowy</h4>
 <p>Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli.</p>
 </section>
-<section id="zadanie-2---kalkulator-oszczędnościowy" class="level4">
-<h4 class="anchored" data-anchor-id="zadanie-2---kalkulator-oszczędnościowy">Zadanie 2 - Kalkulator Oszczędnościowy</h4>
+<section id="zadanie-2---paralelizacja" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-2---paralelizacja">Zadanie 2 - Paralelizacja</h4>
+<p>Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="zadanie-3---kalkulator-oszczędnościowy" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-3---kalkulator-oszczędnościowy">Zadanie 3 - Kalkulator Oszczędnościowy</h4>
 <p>Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.</p>
 <p><strong>Wymagania:</strong></p>
 <ol type="1">
