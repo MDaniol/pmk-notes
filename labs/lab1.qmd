@@ -240,6 +240,7 @@ Załóżmy, że:
 Na podstawie powyższych informacji uzyskujemy układ równań:
 
 $5x+3y=23$ (pierwszy dzień)
+
 $2x+3y=13$ (drugi dzień)
 
 Rozwiążmy zatem ten układ równań, korzystając z biblioteki SciPy:
@@ -308,6 +309,66 @@ plt.show()
 ```
 
 Ten kod utworzy wykres funkcji sinus i cosinus. 
+:::
+
+Przeanalizujmy bardziej efektowny przykład:
+
+::: {.callout-tip}
+### Symulowany oscyloskop
+
+Załóżmy, że chcemy przedstawic komuś koncepcję trzech sygnałów oscyloskopowych:
+
+1. sygnał sinusoidalny
+2. sygnał prostokątny
+3. sygnał trójkątny
+
+Stworzymy wykres tych sygnałów wraz z opisem, skalą oraz powiększeniem fragmentu jednego z sygnałów.
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as patches
+
+# Generowanie sygnałów
+t = np.linspace(0, 5 * np.pi, 1000)
+sin_wave = np.sin(t)
+square_wave = np.sign(sin_wave)
+triangle_wave = 2 * np.arcsin(sin_wave) / np.pi
+
+# Tworzenie głównego wykresu
+fig, ax = plt.subplots(figsize=(12, 8))
+
+ax.plot(t, sin_wave, label="Sinusoidalny", color="blue")
+ax.plot(t, square_wave, label="Prostokątny", color="red", linestyle="--")
+ax.plot(t, triangle_wave, label="Trójkątny", color="green", linestyle="-.")
+
+# Ustawienia wykresu
+ax.set_title("Sygnały oscyloskopowe")
+ax.set_xlabel("Czas")
+ax.set_ylabel("Amplituda")
+ax.grid(True, linestyle='--', alpha=0.7)
+ax.legend()
+
+# Powiększenie fragmentu wykresu
+axins = ax.inset_axes([0.2, 0.2, 0.3, 0.3])  # [x, y, width, height]
+axins.plot(t, sin_wave, color="blue")
+axins.plot(t, square_wave, color="red", linestyle="--")
+axins.plot(t, triangle_wave, color="green", linestyle="-.")
+x1, x2, y1, y2 = 7, 8, -1.5, 1.5  # zakres fragmentu do powiększenia
+axins.set_xlim(x1, x2)
+axins.set_ylim(y1, y2)
+axins.grid(True, linestyle='--', alpha=0.7)
+
+# Zaznaczenie fragmentu do powiększenia na głównym wykresie
+rect = patches.Rectangle((x1, y1), x2-x1, y2-y1, edgecolor='gray', facecolor='none', linestyle=":")
+ax.add_patch(rect)
+ax.indicate_inset_zoom(axins, edgecolor="gray")
+
+plt.tight_layout()
+plt.show()
+```
+
+Ten kod generuje wykres trzech różnych sygnałów oscyloskopowych wraz z legendą, skalą i powiększeniem fragmentu wykresu, pokazującym interesujący obszar tych sygnałów. Zakres powiększenia został zaznaczony na głównym wykresie szarą linią przerywaną.
 :::
 
 ## Typy danych
