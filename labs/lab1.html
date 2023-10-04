@@ -307,7 +307,7 @@ Przykład wektoryzacji
 <div class="callout-body-container callout-body">
 <p>Załóżmy, że chcemy dodać elementy dwóch dużych list do siebie. Możemy to zrobić na dwa sposoby:</p>
 <ol type="1">
-<li>Tradycyjnie:</li>
+<li><strong>Tradycyjnie:</strong></li>
 </ol>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
@@ -317,8 +317,8 @@ Przykład wektoryzacji
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    result.append(list1[i] <span class="op">+</span> list2[i])</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol type="1">
-<li>Z wykorzystaniem biblioteki NumPy i wektoryzacji:</li>
+<ol start="2" type="1">
+<li><strong>Z wykorzystaniem biblioteki NumPy i wektoryzacji:</strong></li>
 </ol>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -381,6 +381,75 @@ Przykład wektoryzacji
 </section>
 <section id="biblioteka-scipy" class="level3">
 <h3 class="anchored" data-anchor-id="biblioteka-scipy">Biblioteka Scipy</h3>
+<p>Drugą z wykorzystywanych przez nas bibliotek jest biblioteka SciPy - rozbudowana biblioteka służąca do obliczeń naukowych i inżynierskich w języku Python. Biblioteka ta bazuje na NumPy, ale dodaje sporo rzeczy “od siebie”. Przejdźmy przez jej najważniejsze moduły:</p>
+<ol type="1">
+<li><p>Moduł do optymalizacji (<code>scipy.optimize</code>): Narzędzia do znajdowania korzeni równań i minimalizacji funkcji.</p></li>
+<li><p>Moduł do algebry liniowej (<code>scipy.linalg</code>): Funkcje do rozwiązywania równań liniowych, obliczania wartości własnych itp.</p></li>
+<li><p>Moduł do przetwarzania sygnałów (<code>scipy.signal</code>): Narzędzia do analizy, projektowania i przetwarzania sygnałów.</p></li>
+<li><p>Moduł do analizy obrazów (<code>scipy.ndimage</code>): Funkcje do przetwarzania i analizy obrazów.</p></li>
+<li><p>Moduł do statystyki (<code>scipy.stats</code>): Obszerna kolekcja funkcji do statystyki i rozkładów prawdopodobieństwa.</p></li>
+<li><p>Moduł do całkowania (<code>scipy.integrate</code>): Narzędzia do całkowania funkcji i równań różniczkowych.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład obliczeń z wykorzystaniem SciPy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Załóżmy, że chcemy znaleźc minimum jakiejś funkcji. Zobaczmy jak możemy to zrobic z wykorzystaniem biblioteki SciPy:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> minimize</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definiujemy funkcję</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">6</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">5</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Znajdujemy minimum funkcji zaczynając od punktu x=0</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> minimize(f, x0<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Wypisujemy wynik</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Minimum value of f(x) is </span><span class="sc">{</span>result<span class="sc">.</span>fun<span class="sc">}</span><span class="ss"> at x = </span><span class="sc">{</span>result<span class="sc">.</span>x<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Przeanalizujmy jeszcze jeden, bardzo ważny przykład, który łączy w sobie wykorzystanie biblioteki SciPy oraz pewne specyficzne cechy wykonywania obliczeń numerycznych.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład rozwiązywania układu równań
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>W szpitalu są dwie grupy pacjentów: osoby z grypą i osoby z zatruciem pokarmowym. Pierwszego dnia przyszło 5 pacjentów z grypą i 3 z zatruciem pokarmowym. Wszyscy razem otrzymali 23 tabletki paracetamolu. Drugiego dnia przyszło 2 osoby z grypą i 3 z zatruciem pokarmowym, a łączna liczba tabletek paracetamolu, które dostali, wynosiła 13. Jaką dawkę paracetamolu otrzymuje pacjent z grypą oraz pacjent z zatruciem pokarmowym?</p>
+<p>Załóżmy, że:</p>
+<ul>
+<li>Dawka dla pacjenta z grypą to <span class="math inline">\(x\)</span> tabletek.</li>
+<li>Dawka dla pacjenta z zatruciem to <span class="math inline">\(y\)</span> tabletek.</li>
+</ul>
+<p>Na podstawie powyższych informacji uzyskujemy układ równań:</p>
+<p><span class="math inline">\(5x+3y=23\)</span> (pierwszy dzień) <span class="math inline">\(2x+3y=13\)</span> (drugi dzień)</p>
+<p>Rozwiążmy zatem ten układ równań, korzystając z biblioteki SciPy:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> solve</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Macierz współczynników</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">5</span>, <span class="dv">3</span>], [<span class="dv">2</span>, <span class="dv">3</span>]])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Wektor wyników</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">23</span>, <span class="dv">13</span>])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Rozwiązujemy układ równań</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>x, y <span class="op">=</span> solve(A, b)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dawka dla pacjenta z grypą: </span><span class="sc">{</span>x<span class="sc">:.2f}</span><span class="ss"> tabletki"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Dawka dla pacjenta z zatruciem pokarmowym: </span><span class="sc">{</span>y<span class="sc">:.2f}</span><span class="ss"> tabletki"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
 <section id="biblioteka-matplotlib" class="level3">
 <h3 class="anchored" data-anchor-id="biblioteka-matplotlib">Biblioteka MatPlotLib</h3>
@@ -435,20 +504,20 @@ Przykład kwantyzacji
 <section id="zadanie-2---paralelizacja" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-2---paralelizacja">Zadanie 2 - Paralelizacja</h4>
 <p>Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="zadanie-3---kalkulator-oszczędnościowy" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-3---kalkulator-oszczędnościowy">Zadanie 3 - Kalkulator Oszczędnościowy</h4>
