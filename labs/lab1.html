@@ -175,20 +175,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#biblioteka-numpy" id="toc-biblioteka-numpy" class="nav-link" data-scroll-target="#biblioteka-numpy">Biblioteka Numpy</a></li>
   <li><a href="#biblioteka-scipy" id="toc-biblioteka-scipy" class="nav-link" data-scroll-target="#biblioteka-scipy">Biblioteka Scipy</a></li>
   <li><a href="#biblioteka-matplotlib" id="toc-biblioteka-matplotlib" class="nav-link" data-scroll-target="#biblioteka-matplotlib">Biblioteka MatPlotLib</a></li>
+  <li><a href="#biblioteka-pytorch" id="toc-biblioteka-pytorch" class="nav-link" data-scroll-target="#biblioteka-pytorch">Biblioteka PyTorch</a></li>
   </ul></li>
   <li><a href="#typy-danych" id="toc-typy-danych" class="nav-link" data-scroll-target="#typy-danych">Typy danych</a></li>
-  <li><a href="#błędy-numeryczne-i-ich-propagacja" id="toc-błędy-numeryczne-i-ich-propagacja" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</a>
-  <ul class="collapse">
+  <li><a href="#błędy-numeryczne-i-ich-propagacja" id="toc-błędy-numeryczne-i-ich-propagacja" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</a></li>
   <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania">Zadania</a></li>
-  </ul></li>
-  <li><a href="#podstawy-użycia-bibliotek" id="toc-podstawy-użycia-bibliotek" class="nav-link" data-scroll-target="#podstawy-użycia-bibliotek">Podstawy użycia bibliotek</a>
-  <ul class="collapse">
-  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy">Numpy</a></li>
-  <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy">SciPy</a></li>
-  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">MatPlotLib</a></li>
-  </ul></li>
-  <li><a href="#błędy-numeryczne-i-ich-propagacja-1" id="toc-błędy-numeryczne-i-ich-propagacja-1" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja-1">Błędy numeryczne i ich propagacja</a></li>
-  <li><a href="#biblioteka-pytorch" id="toc-biblioteka-pytorch" class="nav-link" data-scroll-target="#biblioteka-pytorch">Biblioteka Pytorch</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/lab1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -566,6 +557,90 @@ Symulowany oscyloskop
 </div>
 </div>
 </section>
+<section id="biblioteka-pytorch" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-pytorch">Biblioteka PyTorch</h3>
+<p>PyTorch to otwartoźródłowa biblioteka do uczenia maszynowego, stworzona głównie przez Facebook’s AI Research lab. PyTorch jest znany ze swojej elastyczności i dynamicznej kompilacji, co sprawia, że jest szczególnie użyteczny w badaniach. Umożliwia budowanie różnego rodzaju modeli głębokiego uczenia oraz oferuje wsparcie dla GPU, co przyspiesza obliczenia.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład wykorzystania biblioteki PyTorch
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przeanalizujmy przykład wykorzystania PyTorch do rozwiązania problemu matematycznego polegającego na znalezieniu minimum funkcji kwadratowej. W tym celu użyjemy koncepcji różniczkowania i spadku gradientu (dowiecie się o tym na kolejnych zajęciach z naszego przedmiotu, proszę chwilowo się nie martwic), ale bez wchodzenia głęboko w kontekst uczenia maszynowego.</p>
+<section id="problem" class="level3">
+<h3 class="anchored" data-anchor-id="problem">Problem:</h3>
+<p>Znajdź wartość <span class="math inline">\(x\)</span>, która minimalizuje funkcję <span class="math inline">\(f(x) = x^2 + 4x + 4\)</span>.</p>
+</section>
+<section id="rozwiązanie" class="level3">
+<h3 class="anchored" data-anchor-id="rozwiązanie">Rozwiązanie:</h3>
+<ol type="1">
+<li>Inicjalizuj zmienną <span class="math inline">\(x\)</span> z losową wartością.</li>
+<li>Oblicz wartość funkcji <span class="math inline">\(f\)</span> dla aktualnej wartości <span class="math inline">\(x\)</span>.</li>
+<li>Oblicz gradient funkcji względem <span class="math inline">\(x\)</span> (to informuje nas, w którym kierunku powinniśmy aktualizować <span class="math inline">\(x\)</span> w celu zminimalizowania <span class="math inline">\(f\)</span>).</li>
+<li>Aktualizuj <span class="math inline">\(x\)</span> w kierunku przeciwnym do gradientu.</li>
+<li>Powtarzaj kroki 2-4 przez pewną liczbę iteracji lub do osiągnięcia pewnego progu dokładności.</li>
+</ol>
+</section>
+<section id="kod" class="level3">
+<h3 class="anchored" data-anchor-id="kod">Kod:</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Krok 1: Inicjalizuj zmienną x z losową wartością i wymaganiem obliczania gradientu.</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> torch.randn(<span class="dv">1</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Definicja optymalizatora</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>learning_rate <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.SGD([x], lr<span class="op">=</span>learning_rate)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteracje optymalizacji</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> iteration <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 2: Oblicz wartość funkcji f dla aktualnej wartości x.</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    f <span class="op">=</span> x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">4</span><span class="op">*</span>x <span class="op">+</span> <span class="dv">4</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 3: Oblicz gradient funkcji</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    f.backward()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Krok 4: Aktualizuj x w kierunku przeciwnym do gradientu.</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    optimizer.step()</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zeruj gradienty dla następnej iteracji.</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    optimizer.zero_grad()</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Minimum funkcji f(x) = x^2 + 4x + 4 jest w punkcie x = </span><span class="sc">{</span>x<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>W tym przykładzie korzystamy z PyTorch do obliczenia gradientów i optymalizacji wartości <span class="math inline">\(x\)</span>, aby zminimalizować funkcję <span class="math inline">\(f\)</span>. Nie używamy tu żadnych zaawansowanych koncepcji uczenia maszynowego, ale skupiamy się na podstawach różniczkowania i optymalizacji.</p>
+<p>No dobra, ale dlaczego zatem nie używamy do tego po prostu biblioteki NumPy. Z kilku powodów, niestety niewidocznych gołym okiem na tak prostym przykładzie. Porównując podejście z wykorzystaniem NumPy, do podejścia z wykorzystaniem PyTorch-a, możemy określic pewne różnice (oraz co za tym idzie cechy biblioteki PyTorch)</p>
+<ol type="1">
+<li><strong>Automatyczne różniczkowanie</strong>:
+<ul>
+<li><strong>PyTorch</strong>: PyTorch oferuje automatyczne różniczkowanie dzięki <code>backward()</code>. Pozwala to na obliczenie gradientu funkcji bez konieczności ręcznego określania jego formy.</li>
+<li><strong>NumPy</strong>: W NumPy musiałbyś ręcznie wyznaczyć gradient funkcji, co dla naszej funkcji kwadratowej jest proste, ale dla bardziej skomplikowanych funkcji może być trudne.</li>
+</ul></li>
+<li><strong>Wsparcie dla GPU</strong>:
+<ul>
+<li><strong>PyTorch</strong>: PyTorch może przeprowadzać obliczenia zarówno na CPU, jak i GPU. Dzięki temu operacje mogą być przyspieszone dla dużych zbiorów danych lub skomplikowanych modeli.</li>
+<li><strong>NumPy</strong>: NumPy działa tylko na CPU. Istnieją biblioteki, takie jak CuPy, które oferują podobne do NumPy interfejsy na GPU, ale standardowy NumPy nie oferuje tej funkcjonalności.</li>
+</ul></li>
+<li><strong>Aktualizacja zmiennych</strong>:
+<ul>
+<li><strong>PyTorch</strong>: Optymalizatory w PyTorch (np. <code>torch.optim.SGD</code>) automatycznie aktualizują wartość zmiennych w odpowiedzi na obliczone gradienty.</li>
+<li><strong>NumPy</strong>: Musiałbyś ręcznie zaktualizować wartość zmiennej na podstawie gradientu, np. <code>x = x - learning_rate * gradient</code>.</li>
+</ul></li>
+<li><strong>Integracja z głębokim uczeniem</strong>:
+<ul>
+<li>Jeśli w przyszłości chciałbyś rozbudować rozwiązanie, np. dodać warstwy sieci neuronowej, PyTorch oferuje gotowe do użycia narzędzia i struktury, które ułatwiają to zadanie.</li>
+<li>W przypadku NumPy musiałbyś samodzielnie zaimplementować wiele elementów związanych z sieciami neuronowymi.</li>
+</ul></li>
+</ol>
+<p>Chociaż dla naszego prostego problemu różnice te mogą wydawać się niewielkie, dla bardziej skomplikowanych problemów i większych zbiorów danych zalety PyTorch stają się bardziej widoczne.</p>
+<p>Jeśli jednak chodzi o nasz konkretny problem z minimalizacją funkcji kwadratowej, można go łatwo rozwiązać przy użyciu NumPy, obliczając ręcznie gradient i aktualizując wartość <span class="math inline">\(x\)</span> w pętli. PyTorch jest tutaj używany bardziej jako demonstracja jego możliwości niż konieczność.</p>
+</section>
+</div>
+</div>
+</section>
 </section>
 <section id="typy-danych" class="level2">
 <h2 class="anchored" data-anchor-id="typy-danych">Typy danych</h2>
@@ -607,8 +682,9 @@ Przykład kwantyzacji
 <p>Błąd maszynowy, zwany także epsilonem maszynowym możemy w praktyce wyznaczyc korzystając z definicji, że jest to taka liczba, że:</p>
 <p><span id="eq-xyp"><span class="math display">\[1 + \epsilon \neq 1 \tag{1}\]</span></span></p>
 <p>w arytmetyce zmiennoprzecinkowej komputera. Dla typu <code>float64</code> w bibliotece NumPy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około <span class="math inline">\(2.220446049250313 \cdot e^−16\)</span>.</p>
-<section id="zadania" class="level3">
-<h3 class="anchored" data-anchor-id="zadania">Zadania</h3>
+</section>
+<section id="zadania" class="level2">
+<h2 class="anchored" data-anchor-id="zadania">Zadania</h2>
 <section id="zadanie-1---epsilon-maszynowy" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-1---epsilon-maszynowy">Zadanie 1 - Epsilon Maszynowy</h4>
 <p>Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli.</p>
@@ -616,20 +692,20 @@ Przykład kwantyzacji
 <section id="zadanie-2---paralelizacja" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-2---paralelizacja">Zadanie 2 - Paralelizacja</h4>
 <p>Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="zadanie-3---kalkulator-oszczędnościowy" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-3---kalkulator-oszczędnościowy">Zadanie 3 - Kalkulator Oszczędnościowy</h4>
@@ -657,28 +733,9 @@ Przykład kwantyzacji
 <li>t to liczba lat oszczędzania.</li>
 <li>PMT to stała miesięczna wpłata.</li>
 </ul>
-</section>
-</section>
-</section>
-<section id="podstawy-użycia-bibliotek" class="level2">
-<h2 class="anchored" data-anchor-id="podstawy-użycia-bibliotek">Podstawy użycia bibliotek</h2>
-<section id="numpy" class="level3">
-<h3 class="anchored" data-anchor-id="numpy">Numpy</h3>
-</section>
-<section id="scipy" class="level3">
-<h3 class="anchored" data-anchor-id="scipy">SciPy</h3>
-</section>
-<section id="matplotlib" class="level3">
-<h3 class="anchored" data-anchor-id="matplotlib">MatPlotLib</h3>
-</section>
-</section>
-<section id="błędy-numeryczne-i-ich-propagacja-1" class="level2">
-<h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja-1">Błędy numeryczne i ich propagacja</h2>
-</section>
-<section id="biblioteka-pytorch" class="level2">
-<h2 class="anchored" data-anchor-id="biblioteka-pytorch">Biblioteka Pytorch</h2>
 
 
+</section>
 </section>
 </section>
 
