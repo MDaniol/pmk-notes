@@ -37,16 +37,16 @@ website:
       - href: labs/lab1.qmd
         text: Laboratorium 1
 
-      - section: quarto-workflows/index.qmd
-        text: Materiały Pomocnicze
-        contents: 
-          - quarto-workflows/browser.md
-          - quarto-workflows/rstudio.qmd
-          - quarto-workflows/jupyter.md 
-      - href: learning-more.qmd
-        text: Dodatkowe Źródła
-      - href: transition-from-rmarkdown.qmd
-        text: Przykładowe projekty
+      # - section: quarto-workflows/index.qmd
+      #   text: Materiały Pomocnicze
+      #   contents: 
+      #     - quarto-workflows/browser.md
+      #     - quarto-workflows/rstudio.qmd
+      #     - quarto-workflows/jupyter.md 
+      # - href: learning-more.qmd
+      #   text: Dodatkowe Źródła
+      # - href: transition-from-rmarkdown.qmd
+      #   text: Przykładowe projekty
 
 
 format:

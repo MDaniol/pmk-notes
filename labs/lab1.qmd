@@ -108,6 +108,43 @@ funkcja(1, c=4)  # 1 2 4
 
 ### Pętle
 
+## Wybrane biblioteki numeryczne Pythona
+
+### Biblioteka Numpy
+
+Biblioteka Numpy to **najważniejsza** biblioteka do obliczeń numerycznych w języku Python i jedna z najbardziej popularnych bibliotek ogółem. 
+
+### Biblioteka Scipy
+
+### Biblioteka MatPlotLib
+
+## Typy danych
+
+## Błędy numeryczne i ich propagacja
+
+Rozpocznijmy od dwóch definicji:
+
+- **Sygnał Analogowy:** - Sygnał w postaci wielkości fizycznej zmieniającej się w sposób ciągły, a nie skokowo. Jego wartości mogą zostać określone w każdej chwili. 
+
+- **Sygnał Cyfrowy:** - Przeciwieństwem sygnału analogowego jest sygnał skwantowany, nazywany również dyskretnym. Kwantyzacja to działanie, które sygnał analogowy (liczbę rzeczywistą, o nieskończonym liczbie wartości w danym przedziale) przekształca w ograniczony zbiór liczb całkowitych, dzięki czemu możliwa jest dalsza obróbka tego sygnału przy pomocy komputera
+
+::: {.callout-tip}
+## Przykład kwantyzacji
+
+Przykładem niech będzie sygnał EKG na obrazku poniżej
+
+![EKG](images/lab1_probkowanie.png)
+
+:::
+
+Błędy maszynowe są nieuniknione w obliczeniach numerycznych ze względu na skończoną precyzję reprezentacji liczb w systemach cyfrowych. Sygnał analogowy 
+
+W kontekście arytmetyki zmiennoprzecinkowej, błędy te wynikają z faktu, że wiele liczb rzeczywistych nie może być dokładnie przedstawionych w systemie binarnym o skończonej długości.
+
+Epsilon maszynowy to najmniejsza liczba taka, że 1+epsilon≠11+epsilon=1 w arytmetyce zmiennopozycyjnej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennopozycyjnej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.
+
+Można go łatwo uzyskać w numpy za pomocą funkcji finfo. Oto jak to zrobić:
+
 ### Zadania 
 
 #### Zadanie 1 - Kalkulator Oszczędnościowy
