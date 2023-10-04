@@ -325,12 +325,17 @@ Przykład kwantyzacji
 </div>
 </div>
 </div>
-<p>Konwersja sygnału analogowego do cyfrowego zachodzi zawsze z pewną <strong>ograniczoną dokładnością</strong>. Dokładnoś ta wynika ze skończonej precyzji reprezentacji liczb w systemach cyfrowych. Wiąże się to bezpośrednio z typami danych. Drugim typem błędu, który nas interesuje to błąd maszynowy.</p>
-<p>Błąd kwantyzacji: Pojawia się, gdy sygnał ciągły lub sygnał o dużej rozdzielczości jest przetwarzany do ograniczonej liczby dyskretnych poziomów. Na przykład, gdy analogowy sygnał dźwiękowy jest digitalizowany, jego wartości amplitudy są zaokrąglane do najbliższego poziomu kwantyzacji. Błąd kwantyzacji odnosi się do różnicy między rzeczywistą wartością sygnału a jego kwantyzowaną wartością.</p>
-<p>Błąd maszynowy: Jest to najmniejsza wartość, która może być reprezentowana w danym systemie numerycznym. Dla standardu liczby zmiennoprzecinkowej IEEE 754 (często używany w komputerach), błąd maszynowy określa minimalną różnicę między “1” a następną wartością, która może być reprezentowana. Błąd maszynowy jest ograniczeniem maszynowym i jest bezpośrednio związany z precyzją, z jaką liczby są reprezentowane w komputerze.</p>
-<p>Błędy maszynowe są nieuniknione w obliczeniach numerycznych ze względu na skończoną precyzję reprezentacji liczb w systemach cyfrowych. Sygnał analogowy</p>
-<p>W kontekście arytmetyki zmiennoprzecinkowej, błędy te wynikają z faktu, że wiele liczb rzeczywistych nie może być dokładnie przedstawionych w systemie binarnym o skończonej długości.</p>
-<p>Epsilon maszynowy to najmniejsza liczba taka, że 1+epsilon≠11+epsilon=1 w arytmetyce zmiennopozycyjnej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennopozycyjnej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.</p>
+<p>Konwersja sygnału analogowego do cyfrowego zachodzi zawsze z pewną <strong>ograniczoną dokładnością</strong>. Dokładność ta wynika ze skończonej precyzji reprezentacji liczb w systemach cyfrowych. Nazywamy to błędem <strong>kwantyzacji</strong>. Wiąże się to bezpośrednio z typami danych. Drugim typem błędu, który nas interesuje to błąd <strong>maszynowy</strong>.</p>
+<p><strong>Błąd kwantyzacji:</strong> Pojawia się, gdy sygnał ciągły lub sygnał o dużej rozdzielczości jest przetwarzany do ograniczonej liczby dyskretnych poziomów. Na przykład, gdy analogowy sygnał dźwiękowy jest digitalizowany, jego wartości amplitudy są zaokrąglane do najbliższego poziomu kwantyzacji. Błąd kwantyzacji odnosi się do różnicy między rzeczywistą wartością sygnału a jego kwantyzowaną wartością.</p>
+<p><strong>Błąd maszynowy:</strong> Jest to najmniejsza wartość, która może być reprezentowana w danym systemie numerycznym. Dla standardu liczby zmiennoprzecinkowej IEEE 754 (często używany w komputerach), błąd maszynowy określa minimalną różnicę między “1” a następną wartością, która może być reprezentowana. Błąd maszynowy jest ograniczeniem maszynowym i jest bezpośrednio związany z precyzją, z jaką liczby są reprezentowane w komputerze.</p>
+<ul>
+<li>Oba typy błędów wynikają z ograniczeń w reprezentowaniu liczb.</li>
+<li>W kontekście przetwarzania sygnałów, błąd kwantyzacji często jest bardziej widoczny, ponieważ wpływa bezpośrednio na jakość rekonstrukcji sygnału. Jednak w obliczeniach numerycznych, błąd maszynowy może kumulować się w wielu operacjach i wpływać na dokładność wyników.</li>
+<li>W praktycznych zastosowaniach DSP (cyfrowe przetwarzanie sygnałów), błąd kwantyzacji jest często większym problemem niż błąd maszynowy, chyba że algorytm wymaga dużej precyzji w obliczeniach matematycznych.</li>
+</ul>
+<p>Błąd maszynowy, zwany także epsilonem maszynowym możemy w praktyce wyznaczyc korzystając z definicji, że jest to taka liczba, że:</p>
+<p><span class="math display">\[1 + \epsilon \neq 1\]</span></p>
+<p>w arytmetyce zmiennoprzecinkowej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.</p>
 <p>Można go łatwo uzyskać w numpy za pomocą funkcji finfo. Oto jak to zrobić:</p>
 <section id="zadania" class="level3">
 <h3 class="anchored" data-anchor-id="zadania">Zadania</h3>
