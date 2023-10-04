@@ -453,6 +453,55 @@ Przykład rozwiązywania układu równań
 </section>
 <section id="biblioteka-matplotlib" class="level3">
 <h3 class="anchored" data-anchor-id="biblioteka-matplotlib">Biblioteka MatPlotLib</h3>
+<p><strong>Biblioteka <code>matplotlib</code></strong> to jedno z najpopularniejszych narzędzi do tworzenia wizualizacji danych w Pythonie. Dzięki niej można tworzyć różnorodne wykresy, od podstawowych liniowych czy słupkowych, po bardziej zaawansowane jak histogramy, wykresy punktowe czy konturowe.</p>
+<p><strong>Najważniejsze cechy biblioteki <code>matplotlib</code>:</strong></p>
+<ol type="1">
+<li><strong>Wszechstronność</strong>: Możliwość tworzenia wielu typów wykresów.</li>
+<li><strong>Dostosowywalność</strong>: Wielkie możliwości konfiguracji wyglądu wykresów.</li>
+<li><strong>Interaktywność</strong>: Możliwość tworzenia interaktywnych wizualizacji.</li>
+<li><strong>Integracja z innymi bibliotekami</strong>: <code>matplotlib</code> integruje się z wieloma innymi bibliotekami Pythona takimi jak <code>pandas</code> czy <code>numpy</code>.</li>
+<li><strong>Podmoduł <code>pyplot</code></strong>: Zapewnia interfejs podobny do MATLAB-a, co jest przydatne dla osób znających to środowisko.</li>
+<li><strong>Wsparcie dla różnych formatów</strong>: Możliwość zapisu w wielu popularnych formatach graficznych jak PNG, PDF, SVG i innych.</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Prosty przykład:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Stworzymy wykres przedstawiający funkcje sinus i cosinus na tym samym rysunku z dodatkową konfiguracją:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dane</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span> np.pi, <span class="dv">400</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.sin(x)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.cos(x)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzenie wykresu</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))  <span class="co"># ustawienie rozmiaru wykresu</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y1, label<span class="op">=</span><span class="st">'sin(x)'</span>, color<span class="op">=</span><span class="st">'blue'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  <span class="co"># wykres funkcji sinus</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y2, label<span class="op">=</span><span class="st">'cos(x)'</span>, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>)  <span class="co"># wykres funkcji cosinus</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodanie tytułu i etykiet osi</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Funkcje sinus i cosinus'</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'x'</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'y'</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Dodanie siatki i legendy</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, which<span class="op">=</span><span class="st">'both'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Wyświetlenie wykresu</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># automatyczne dopasowanie elementów wykresu</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ten kod utworzy wykres funkcji sinus i cosinus.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="typy-danych" class="level2">
@@ -504,20 +553,20 @@ Przykład kwantyzacji
 <section id="zadanie-2---paralelizacja" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-2---paralelizacja">Zadanie 2 - Paralelizacja</h4>
 <p>Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tworzymy listę wartości od 0 do 10^6</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [i <span class="op">*</span> <span class="fl">0.001</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000000</span>)]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> time.time()</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>sin_values <span class="op">=</span> []</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> values:</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    sin_values.append(math.sin(val))</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Traditional loop took </span><span class="sc">{</span>end_time <span class="op">-</span> start_time<span class="sc">}</span><span class="ss"> seconds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="zadanie-3---kalkulator-oszczędnościowy" class="level4">
 <h4 class="anchored" data-anchor-id="zadanie-3---kalkulator-oszczędnościowy">Zadanie 3 - Kalkulator Oszczędnościowy</h4>
