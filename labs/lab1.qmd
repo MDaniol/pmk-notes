@@ -194,6 +194,7 @@ W kontekście metod numerycznych, `NumPy` dostarcza solidne narzędzie do szybki
 
 
 
+
 ### Biblioteka MatPlotLib
 
 ## Typy danych
@@ -238,7 +239,29 @@ $$1 + \epsilon \neq 1$${#eq-xyp}
 
 Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli. 
 
-#### Zadanie 2 - Kalkulator Oszczędnościowy
+#### Zadanie 2 - Paralelizacja
+
+Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.
+
+```python
+import math
+import time
+
+# Tworzymy listę wartości od 0 do 10^6
+values = [i * 0.001 for i in range(1000000)]
+
+start_time = time.time()
+
+sin_values = []
+for val in values:
+    sin_values.append(math.sin(val))
+
+end_time = time.time()
+print(f"Traditional loop took {end_time - start_time} seconds")
+
+```
+
+#### Zadanie 3 - Kalkulator Oszczędnościowy
 Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.
 
 **Wymagania:**
