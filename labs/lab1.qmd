@@ -371,7 +371,88 @@ plt.show()
 Ten kod generuje wykres trzech różnych sygnałów oscyloskopowych wraz z legendą, skalą i powiększeniem fragmentu wykresu, pokazującym interesujący obszar tych sygnałów. Zakres powiększenia został zaznaczony na głównym wykresie szarą linią przerywaną.
 :::
 
+### Biblioteka PyTorch
+
+PyTorch to otwartoźródłowa biblioteka do uczenia maszynowego, stworzona głównie przez Facebook's AI Research lab. PyTorch jest znany ze swojej elastyczności i dynamicznej kompilacji, co sprawia, że jest szczególnie użyteczny w badaniach. Umożliwia budowanie różnego rodzaju modeli głębokiego uczenia oraz oferuje wsparcie dla GPU, co przyspiesza obliczenia.
+
+::: {.callout-tip}
+### Przykład wykorzystania biblioteki PyTorch
+
+Przeanalizujmy przykład wykorzystania PyTorch do rozwiązania problemu matematycznego polegającego na znalezieniu minimum funkcji kwadratowej. W tym celu użyjemy koncepcji różniczkowania i spadku gradientu (dowiecie się o tym na kolejnych zajęciach z naszego przedmiotu, proszę chwilowo się nie martwic), ale bez wchodzenia głęboko w kontekst uczenia maszynowego.
+
+### Problem:
+
+Znajdź wartość $x$, która minimalizuje funkcję $f(x) = x^2 + 4x + 4$.
+
+### Rozwiązanie:
+
+1. Inicjalizuj zmienną $x$ z losową wartością.
+2. Oblicz wartość funkcji $f$ dla aktualnej wartości $x$.
+3. Oblicz gradient funkcji względem $x$ (to informuje nas, w którym kierunku powinniśmy aktualizować $x$ w celu zminimalizowania $f$).
+4. Aktualizuj $x$ w kierunku przeciwnym do gradientu.
+5. Powtarzaj kroki 2-4 przez pewną liczbę iteracji lub do osiągnięcia pewnego progu dokładności.
+
+### Kod:
+
+```python
+import torch
+
+# Krok 1: Inicjalizuj zmienną x z losową wartością i wymaganiem obliczania gradientu.
+x = torch.randn(1, requires_grad=True)
+
+# Definicja optymalizatora
+learning_rate = 0.1
+optimizer = torch.optim.SGD([x], lr=learning_rate)
+
+# Iteracje optymalizacji
+for iteration in range(100):
+    # Krok 2: Oblicz wartość funkcji f dla aktualnej wartości x.
+    f = x**2 + 4*x + 4
+    
+    # Krok 3: Oblicz gradient funkcji
+    f.backward()
+    
+    # Krok 4: Aktualizuj x w kierunku przeciwnym do gradientu.
+    optimizer.step()
+    
+    # Zeruj gradienty dla następnej iteracji.
+    optimizer.zero_grad()
+
+print(f'Minimum funkcji f(x) = x^2 + 4x + 4 jest w punkcie x = {x.item()}')
+```
+
+W tym przykładzie korzystamy z PyTorch do obliczenia gradientów i optymalizacji wartości $x$, aby zminimalizować funkcję $f$. Nie używamy tu żadnych zaawansowanych koncepcji uczenia maszynowego, ale skupiamy się na podstawach różniczkowania i optymalizacji.
+
+No dobra, ale dlaczego zatem nie używamy do tego po prostu biblioteki NumPy. Z kilku powodów, niestety niewidocznych gołym okiem na tak prostym przykładzie. Porównując podejście z wykorzystaniem NumPy, do podejścia z wykorzystaniem PyTorch-a, możemy określic pewne różnice (oraz co za tym idzie cechy biblioteki PyTorch)
+
+1. **Automatyczne różniczkowanie**:
+    - **PyTorch**: PyTorch oferuje automatyczne różniczkowanie dzięki `backward()`. Pozwala to na obliczenie gradientu funkcji bez konieczności ręcznego określania jego formy.
+    - **NumPy**: W NumPy musiałbyś ręcznie wyznaczyć gradient funkcji, co dla naszej funkcji kwadratowej jest proste, ale dla bardziej skomplikowanych funkcji może być trudne.
+
+2. **Wsparcie dla GPU**:
+    - **PyTorch**: PyTorch może przeprowadzać obliczenia zarówno na CPU, jak i GPU. Dzięki temu operacje mogą być przyspieszone dla dużych zbiorów danych lub skomplikowanych modeli.
+    - **NumPy**: NumPy działa tylko na CPU. Istnieją biblioteki, takie jak CuPy, które oferują podobne do NumPy interfejsy na GPU, ale standardowy NumPy nie oferuje tej funkcjonalności.
+
+3. **Aktualizacja zmiennych**:
+    - **PyTorch**: Optymalizatory w PyTorch (np. `torch.optim.SGD`) automatycznie aktualizują wartość zmiennych w odpowiedzi na obliczone gradienty.
+    - **NumPy**: Musiałbyś ręcznie zaktualizować wartość zmiennej na podstawie gradientu, np. `x = x - learning_rate * gradient`.
+
+4. **Integracja z głębokim uczeniem**:
+    - Jeśli w przyszłości chciałbyś rozbudować rozwiązanie, np. dodać warstwy sieci neuronowej, PyTorch oferuje gotowe do użycia narzędzia i struktury, które ułatwiają to zadanie.
+    - W przypadku NumPy musiałbyś samodzielnie zaimplementować wiele elementów związanych z sieciami neuronowymi.
+
+Chociaż dla naszego prostego problemu różnice te mogą wydawać się niewielkie, dla bardziej skomplikowanych problemów i większych zbiorów danych zalety PyTorch stają się bardziej widoczne.
+
+Jeśli jednak chodzi o nasz konkretny problem z minimalizacją funkcji kwadratowej, można go łatwo rozwiązać przy użyciu NumPy, obliczając ręcznie gradient i aktualizując wartość $x$ w pętli. PyTorch jest tutaj używany bardziej jako demonstracja jego możliwości niż konieczność.
+
+:::
+
+
+
+
 ## Typy danych
+
+
 
 ## Błędy numeryczne i ich propagacja
 
@@ -407,7 +488,7 @@ $$1 + \epsilon \neq 1$${#eq-xyp}
 
  w arytmetyce zmiennoprzecinkowej komputera. Dla typu `float64` w bibliotece NumPy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około $2.220446049250313 \cdot e^−16$.
 
-### Zadania 
+## Zadania 
 
 #### Zadanie 1 - Epsilon Maszynowy
 
@@ -462,15 +543,3 @@ Gdzie:
 - n to liczba okresów kapitalizacji w ciągu roku (dla kapitalizacji miesięcznej n=12n=12).
 - t to liczba lat oszczędzania.
 - PMT to stała miesięczna wpłata.
-
-
-
-## Podstawy użycia bibliotek
-
-### Numpy
-### SciPy
-### MatPlotLib
-
-## Błędy numeryczne i ich propagacja
-
-## Biblioteka Pytorch
