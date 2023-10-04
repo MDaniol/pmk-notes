@@ -112,9 +112,87 @@ funkcja(1, c=4)  # 1 2 4
 
 ### Biblioteka Numpy
 
-Biblioteka Numpy to **najważniejsza** biblioteka do obliczeń numerycznych w języku Python i jedna z najbardziej popularnych bibliotek ogółem. 
+**`NumPy`** to podstawowa biblioteka do obliczeń naukowych w Pythonie, która dostarcza wsparcie dla dużych, wielowymiarowych tablic i macierzy oraz wielu matematycznych funkcji do operacji na tych tablicach. Oto kilka najważniejszych cech biblioteki **`NumPy`** w kontekście metod numerycznych:
+
+1. **Wektoryzacja**: 
+   - Pozwala na wykonywanie operacji na całych tablicach bez potrzeby stosowania pętli. 
+   - Operacje wektoryzowane są znacznie bardziej wydajne niż ich odpowiedniki bazujące na pętlach, dzięki zastosowaniu optymalizowanych funkcji niskiego poziomu napisanych w językach takich jak C i Fortran.
+
+::: {.callout-tip}
+## Przykład wektoryzacji
+
+Załóżmy, że chcemy dodać elementy dwóch dużych list do siebie. Możemy to zrobić na dwa sposoby:
+
+1. Tradycyjnie:
+
+```python
+list1 = [1, 2, 3, 4, 5]
+list2 = [5, 4, 3, 2, 1]
+result = []
+
+for i in range(len(list1)):
+    result.append(list1[i] + list2[i])
+
+print(result)
+```
+
+1. Z wykorzystaniem biblioteki NumPy i wektoryzacji:
+
+```python
+import numpy as np
+
+array1 = np.array([1, 2, 3, 4, 5])
+array2 = np.array([5, 4, 3, 2, 1])
+
+result_array = array1 + array2
+print(result_array)
+```
+
+Zobaczmy teraz, co robi NumPy:
+
+Gdy wykonujemy operację result_array = array1 + array2, NumPy wykonuje kilka kroków:
+
+1. **Sprawdzanie wymiarów:**
+Najpierw NumPy sprawdzi, czy obie tablice mają taki sam kształt (shape). Jeśli nie mają, zostanie zgłoszony błąd (chyba że możliwe jest "rozgłaszanie" (broadcasting), ale to bardziej zaawansowana funkcjonalność).
+
+2. **Alokacja pamięci:**
+NumPy alokuje pamięć dla wynikowej tablicy, która będzie miała taki sam kształt jak array1 i array2.
+    
+3. **Operacje element po elemencie:**
+Następnie, dla każdego indeksu w tablicach, NumPy dodaje wartości z array1 i array2, a wynik zapisuje w odpowiednim miejscu w result_array.
+
+W rzeczywistości, proces jest bardziej skomplikowany i zoptymalizowany pod kątem wydajności. Dzięki wektoryzacji i natywnym, optymalizowanym funkcjom niskiego poziomu, operacje takie jak ta są wykonane bardzo szybko.
+:::
+
+
+
+2. **Efektywna organizacja pamięci**:
+- Tablice `NumPy` są jednorodne i przechowywane w ciągłych blokach pamięci. W przeciwieństwie do list w Pythonie, które są tablicami wskaźników, tablice `NumPy` zajmują mniej miejsca i umożliwiają szybszy dostęp do danych.
+- Obsługuje też widoki (views), które pozwalają na dostęp do danych bez ich kopiowania, co jest szczególnie przydatne w dużych zbiorach danych.
+
+3. **Paralelizacja**:
+- Chociaż sama **`NumPy`** nie obsługuje paralelizacji na poziomie wielu wątków, jej operacje są zoptymalizowane do wykorzystania jednostek SSE/AVX dostępnych w nowoczesnych procesorach, co przyspiesza wiele operacji.
+- Dodatkowo, biblioteki takie jak `Dask` czy `Numba` pozwalają na łatwą paralelizację i kompilację operacji **`NumPy`** dla jeszcze większej wydajności.
+
+4. **Wsparcie dla operacji algebry liniowej, transformacji Fouriera i funkcji statystycznych**: 
+- Dostarcza funkcje do rozwiązywania układów równań, obliczania wartości własnych, dekompozycji oraz innych kluczowych operacji algebry liniowej.
+- Wbudowane funkcje do operacji na liczbach zespolonych oraz do wykonywania transformacji Fouriera.
+
+5. **Wsparcie dla różnych typów danych**: 
+- Obsługuje szeroki zakres typów danych, w tym typy liczbowe (całkowite, zmiennoprzecinkowe, zespolone) oraz typy dat i czasów.
+
+6. **Interoperacyjność**:
+- Może współdziałać z bibliotekami napisanymi w innych językach, takimi jak C, C++ czy Fortran, co pozwala na wykorzystanie istniejących, optymalizowanych kodów.
+- Łatwa integracja z innymi bibliotekami do analizy danych, takimi jak `pandas` czy `SciPy`.
+
+7. **Rozszerzalność**:
+- Możliwość tworzenia własnych typów danych i funkcji `ufunc`, które zachowują się jak wbudowane operacje wektoryzowane.
+
+W kontekście metod numerycznych, `NumPy` dostarcza solidne narzędzie do szybkiego i wydajnego przetwarzania danych oraz implementacji algorytmów numerycznych w Pythonie.
 
 ### Biblioteka Scipy
+
+
 
 ### Biblioteka MatPlotLib
 
@@ -150,15 +228,17 @@ Dokładność ta wynika ze skończonej precyzji reprezentacji liczb w systemach 
 
 Błąd maszynowy, zwany także epsilonem maszynowym możemy w praktyce wyznaczyc korzystając z definicji, że jest to taka liczba, że:
 
-$$1 + \epsilon \neq 1$$
+$$1 + \epsilon \neq 1$${#eq-xyp}
 
- w arytmetyce zmiennoprzecinkowej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.
-
-Można go łatwo uzyskać w numpy za pomocą funkcji finfo. Oto jak to zrobić:
+ w arytmetyce zmiennoprzecinkowej komputera. Dla typu `float64` w bibliotece NumPy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około $2.220446049250313 \cdot e^−16$.
 
 ### Zadania 
 
-#### Zadanie 1 - Kalkulator Oszczędnościowy
+#### Zadanie 1 - Epsilon Maszynowy
+
+Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli. 
+
+#### Zadanie 2 - Kalkulator Oszczędnościowy
 Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.
 
 **Wymagania:**
