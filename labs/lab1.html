@@ -287,7 +287,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="wybrane-biblioteki-numeryczne-pythona">Wybrane biblioteki numeryczne Pythona</h2>
 <section id="biblioteka-numpy" class="level3">
 <h3 class="anchored" data-anchor-id="biblioteka-numpy">Biblioteka Numpy</h3>
-<p>Biblioteka Numpy to <strong>najważniejsza</strong> biblioteka do obliczeń numerycznych w języku Python i jedna z najbardziej popularnych bibliotek ogółem.</p>
+<p><strong><code>NumPy</code></strong> to podstawowa biblioteka do obliczeń naukowych w Pythonie, która dostarcza wsparcie dla dużych, wielowymiarowych tablic i macierzy oraz wielu matematycznych funkcji do operacji na tych tablicach. Oto kilka najważniejszych cech biblioteki <strong><code>NumPy</code></strong> w kontekście metod numerycznych:</p>
+<ol type="1">
+<li><strong>Wektoryzacja</strong>:
+<ul>
+<li>Pozwala na wykonywanie operacji na całych tablicach bez potrzeby stosowania pętli.</li>
+<li>Operacje wektoryzowane są znacznie bardziej wydajne niż ich odpowiedniki bazujące na pętlach, dzięki zastosowaniu optymalizowanych funkcji niskiego poziomu napisanych w językach takich jak C i Fortran.</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład wektoryzacji
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Załóżmy, że chcemy dodać elementy dwóch dużych list do siebie. Możemy to zrobić na dwa sposoby:</p>
+<ol type="1">
+<li>Tradycyjnie:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>list1 <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>list2 <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> []</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(list1)):</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    result.append(list1[i] <span class="op">+</span> list2[i])</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Z wykorzystaniem biblioteki NumPy i wektoryzacji:</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>array1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>array2 <span class="op">=</span> np.array([<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>result_array <span class="op">=</span> array1 <span class="op">+</span> array2</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result_array)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Zobaczmy teraz, co robi NumPy:</p>
+<p>Gdy wykonujemy operację result_array = array1 + array2, NumPy wykonuje kilka kroków:</p>
+<ol type="1">
+<li><p><strong>Sprawdzanie wymiarów:</strong> Najpierw NumPy sprawdzi, czy obie tablice mają taki sam kształt (shape). Jeśli nie mają, zostanie zgłoszony błąd (chyba że możliwe jest “rozgłaszanie” (broadcasting), ale to bardziej zaawansowana funkcjonalność).</p></li>
+<li><p><strong>Alokacja pamięci:</strong> NumPy alokuje pamięć dla wynikowej tablicy, która będzie miała taki sam kształt jak array1 i array2.</p></li>
+<li><p><strong>Operacje element po elemencie:</strong> Następnie, dla każdego indeksu w tablicach, NumPy dodaje wartości z array1 i array2, a wynik zapisuje w odpowiednim miejscu w result_array.</p></li>
+</ol>
+<p>W rzeczywistości, proces jest bardziej skomplikowany i zoptymalizowany pod kątem wydajności. Dzięki wektoryzacji i natywnym, optymalizowanym funkcjom niskiego poziomu, operacje takie jak ta są wykonane bardzo szybko.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><strong>Efektywna organizacja pamięci</strong>:</li>
+</ol>
+<ul>
+<li>Tablice <code>NumPy</code> są jednorodne i przechowywane w ciągłych blokach pamięci. W przeciwieństwie do list w Pythonie, które są tablicami wskaźników, tablice <code>NumPy</code> zajmują mniej miejsca i umożliwiają szybszy dostęp do danych.</li>
+<li>Obsługuje też widoki (views), które pozwalają na dostęp do danych bez ich kopiowania, co jest szczególnie przydatne w dużych zbiorach danych.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Paralelizacja</strong>:</li>
+</ol>
+<ul>
+<li>Chociaż sama <strong><code>NumPy</code></strong> nie obsługuje paralelizacji na poziomie wielu wątków, jej operacje są zoptymalizowane do wykorzystania jednostek SSE/AVX dostępnych w nowoczesnych procesorach, co przyspiesza wiele operacji.</li>
+<li>Dodatkowo, biblioteki takie jak <code>Dask</code> czy <code>Numba</code> pozwalają na łatwą paralelizację i kompilację operacji <strong><code>NumPy</code></strong> dla jeszcze większej wydajności.</li>
+</ul>
+<ol start="4" type="1">
+<li><strong>Wsparcie dla operacji algebry liniowej, transformacji Fouriera i funkcji statystycznych</strong>:</li>
+</ol>
+<ul>
+<li>Dostarcza funkcje do rozwiązywania układów równań, obliczania wartości własnych, dekompozycji oraz innych kluczowych operacji algebry liniowej.</li>
+<li>Wbudowane funkcje do operacji na liczbach zespolonych oraz do wykonywania transformacji Fouriera.</li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Wsparcie dla różnych typów danych</strong>:</li>
+</ol>
+<ul>
+<li>Obsługuje szeroki zakres typów danych, w tym typy liczbowe (całkowite, zmiennoprzecinkowe, zespolone) oraz typy dat i czasów.</li>
+</ul>
+<ol start="6" type="1">
+<li><strong>Interoperacyjność</strong>:</li>
+</ol>
+<ul>
+<li>Może współdziałać z bibliotekami napisanymi w innych językach, takimi jak C, C++ czy Fortran, co pozwala na wykorzystanie istniejących, optymalizowanych kodów.</li>
+<li>Łatwa integracja z innymi bibliotekami do analizy danych, takimi jak <code>pandas</code> czy <code>SciPy</code>.</li>
+</ul>
+<ol start="7" type="1">
+<li><strong>Rozszerzalność</strong>:</li>
+</ol>
+<ul>
+<li>Możliwość tworzenia własnych typów danych i funkcji <code>ufunc</code>, które zachowują się jak wbudowane operacje wektoryzowane.</li>
+</ul>
+<p>W kontekście metod numerycznych, <code>NumPy</code> dostarcza solidne narzędzie do szybkiego i wydajnego przetwarzania danych oraz implementacji algorytmów numerycznych w Pythonie.</p>
 </section>
 <section id="biblioteka-scipy" class="level3">
 <h3 class="anchored" data-anchor-id="biblioteka-scipy">Biblioteka Scipy</h3>
@@ -334,13 +424,16 @@ Przykład kwantyzacji
 <li>W praktycznych zastosowaniach DSP (cyfrowe przetwarzanie sygnałów), błąd kwantyzacji jest często większym problemem niż błąd maszynowy, chyba że algorytm wymaga dużej precyzji w obliczeniach matematycznych.</li>
 </ul>
 <p>Błąd maszynowy, zwany także epsilonem maszynowym możemy w praktyce wyznaczyc korzystając z definicji, że jest to taka liczba, że:</p>
-<p><span class="math display">\[1 + \epsilon \neq 1\]</span></p>
-<p>w arytmetyce zmiennoprzecinkowej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.</p>
-<p>Można go łatwo uzyskać w numpy za pomocą funkcji finfo. Oto jak to zrobić:</p>
+<p><span id="eq-xyp"><span class="math display">\[1 + \epsilon \neq 1 \tag{1}\]</span></span></p>
+<p>w arytmetyce zmiennoprzecinkowej komputera. Dla typu <code>float64</code> w bibliotece NumPy (co jest standardowym formatem liczby zmiennoprzecinkowej o podwójnej precyzji), epsilon maszynowy wynosi około <span class="math inline">\(2.220446049250313 \cdot e^−16\)</span>.</p>
 <section id="zadania" class="level3">
 <h3 class="anchored" data-anchor-id="zadania">Zadania</h3>
-<section id="zadanie-1---kalkulator-oszczędnościowy" class="level4">
-<h4 class="anchored" data-anchor-id="zadanie-1---kalkulator-oszczędnościowy">Zadanie 1 - Kalkulator Oszczędnościowy</h4>
+<section id="zadanie-1---epsilon-maszynowy" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-1---epsilon-maszynowy">Zadanie 1 - Epsilon Maszynowy</h4>
+<p>Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli.</p>
+</section>
+<section id="zadanie-2---kalkulator-oszczędnościowy" class="level4">
+<h4 class="anchored" data-anchor-id="zadanie-2---kalkulator-oszczędnościowy">Zadanie 2 - Kalkulator Oszczędnościowy</h4>
 <p>Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.</p>
 <p><strong>Wymagania:</strong></p>
 <ol type="1">
