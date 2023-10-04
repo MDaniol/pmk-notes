@@ -63,7 +63,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../quarto-workflows/index.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -151,47 +150,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Laboratorium 1</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a href="../quarto-workflows/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Materiały Pomocnicze</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../quarto-workflows/browser.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From the Browser</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../quarto-workflows/rstudio.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From RStudio</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../quarto-workflows/jupyter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Jupyter</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../learning-more.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Dodatkowe Źródła</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../transition-from-rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Przykładowe projekty</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -211,6 +169,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#czym-jest-python-i-jak-działa" id="toc-czym-jest-python-i-jak-działa" class="nav-link" data-scroll-target="#czym-jest-python-i-jak-działa">Czym jest Python i jak działa</a></li>
   <li><a href="#funkcje-i-przekazywanie-argumentów" id="toc-funkcje-i-przekazywanie-argumentów" class="nav-link" data-scroll-target="#funkcje-i-przekazywanie-argumentów">Funkcje i przekazywanie argumentów</a></li>
   <li><a href="#pętle" id="toc-pętle" class="nav-link" data-scroll-target="#pętle">Pętle</a></li>
+  </ul></li>
+  <li><a href="#wybrane-biblioteki-numeryczne-pythona" id="toc-wybrane-biblioteki-numeryczne-pythona" class="nav-link" data-scroll-target="#wybrane-biblioteki-numeryczne-pythona">Wybrane biblioteki numeryczne Pythona</a>
+  <ul class="collapse">
+  <li><a href="#biblioteka-numpy" id="toc-biblioteka-numpy" class="nav-link" data-scroll-target="#biblioteka-numpy">Biblioteka Numpy</a></li>
+  <li><a href="#biblioteka-scipy" id="toc-biblioteka-scipy" class="nav-link" data-scroll-target="#biblioteka-scipy">Biblioteka Scipy</a></li>
+  <li><a href="#biblioteka-matplotlib" id="toc-biblioteka-matplotlib" class="nav-link" data-scroll-target="#biblioteka-matplotlib">Biblioteka MatPlotLib</a></li>
+  </ul></li>
+  <li><a href="#typy-danych" id="toc-typy-danych" class="nav-link" data-scroll-target="#typy-danych">Typy danych</a></li>
+  <li><a href="#błędy-numeryczne-i-ich-propagacja" id="toc-błędy-numeryczne-i-ich-propagacja" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</a>
+  <ul class="collapse">
   <li><a href="#zadania" id="toc-zadania" class="nav-link" data-scroll-target="#zadania">Zadania</a></li>
   </ul></li>
   <li><a href="#podstawy-użycia-bibliotek" id="toc-podstawy-użycia-bibliotek" class="nav-link" data-scroll-target="#podstawy-użycia-bibliotek">Podstawy użycia bibliotek</a>
@@ -219,7 +187,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy">SciPy</a></li>
   <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">MatPlotLib</a></li>
   </ul></li>
-  <li><a href="#błędy-numeryczne-i-ich-propagacja" id="toc-błędy-numeryczne-i-ich-propagacja" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</a></li>
+  <li><a href="#błędy-numeryczne-i-ich-propagacja-1" id="toc-błędy-numeryczne-i-ich-propagacja-1" class="nav-link" data-scroll-target="#błędy-numeryczne-i-ich-propagacja-1">Błędy numeryczne i ich propagacja</a></li>
   <li><a href="#biblioteka-pytorch" id="toc-biblioteka-pytorch" class="nav-link" data-scroll-target="#biblioteka-pytorch">Biblioteka Pytorch</a></li>
   </ul></li>
   </ul>
@@ -314,6 +282,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="pętle" class="level3">
 <h3 class="anchored" data-anchor-id="pętle">Pętle</h3>
 </section>
+</section>
+<section id="wybrane-biblioteki-numeryczne-pythona" class="level2">
+<h2 class="anchored" data-anchor-id="wybrane-biblioteki-numeryczne-pythona">Wybrane biblioteki numeryczne Pythona</h2>
+<section id="biblioteka-numpy" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-numpy">Biblioteka Numpy</h3>
+<p>Biblioteka Numpy to <strong>najważniejsza</strong> biblioteka do obliczeń numerycznych w języku Python i jedna z najbardziej popularnych bibliotek ogółem.</p>
+</section>
+<section id="biblioteka-scipy" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-scipy">Biblioteka Scipy</h3>
+</section>
+<section id="biblioteka-matplotlib" class="level3">
+<h3 class="anchored" data-anchor-id="biblioteka-matplotlib">Biblioteka MatPlotLib</h3>
+</section>
+</section>
+<section id="typy-danych" class="level2">
+<h2 class="anchored" data-anchor-id="typy-danych">Typy danych</h2>
+</section>
+<section id="błędy-numeryczne-i-ich-propagacja" class="level2">
+<h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</h2>
+<p>Rozpocznijmy od dwóch definicji:</p>
+<ul>
+<li><p><strong>Sygnał Analogowy:</strong> - Sygnał w postaci wielkości fizycznej zmieniającej się w sposób ciągły, a nie skokowo. Jego wartości mogą zostać określone w każdej chwili.</p></li>
+<li><p><strong>Sygnał Cyfrowy:</strong> - Przeciwieństwem sygnału analogowego jest sygnał skwantowany, nazywany również dyskretnym. Kwantyzacja to działanie, które sygnał analogowy (liczbę rzeczywistą, o nieskończonym liczbie wartości w danym przedziale) przekształca w ograniczony zbiór liczb całkowitych, dzięki czemu możliwa jest dalsza obróbka tego sygnału przy pomocy komputera</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Przykład kwantyzacji
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Przykładem niech będzie sygnał EKG na obrazku poniżej</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/lab1_probkowanie.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">EKG</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Błędy maszynowe są nieuniknione w obliczeniach numerycznych ze względu na skończoną precyzję reprezentacji liczb w systemach cyfrowych. Sygnał analogowy</p>
+<p>W kontekście arytmetyki zmiennoprzecinkowej, błędy te wynikają z faktu, że wiele liczb rzeczywistych nie może być dokładnie przedstawionych w systemie binarnym o skończonej długości.</p>
+<p>Epsilon maszynowy to najmniejsza liczba taka, że 1+epsilon≠11+epsilon=1 w arytmetyce zmiennopozycyjnej komputera. Dla typu float64 w bibliotece numpy (co jest standardowym formatem liczby zmiennopozycyjnej o podwójnej precyzji), epsilon maszynowy wynosi około 2−522−52 czyli około 2.220446049250313×10−162.220446049250313×10−16.</p>
+<p>Można go łatwo uzyskać w numpy za pomocą funkcji finfo. Oto jak to zrobić:</p>
 <section id="zadania" class="level3">
 <h3 class="anchored" data-anchor-id="zadania">Zadania</h3>
 <section id="zadanie-1---kalkulator-oszczędnościowy" class="level4">
@@ -357,8 +372,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="matplotlib">MatPlotLib</h3>
 </section>
 </section>
-<section id="błędy-numeryczne-i-ich-propagacja" class="level2">
-<h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</h2>
+<section id="błędy-numeryczne-i-ich-propagacja-1" class="level2">
+<h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja-1">Błędy numeryczne i ich propagacja</h2>
 </section>
 <section id="biblioteka-pytorch" class="level2">
 <h2 class="anchored" data-anchor-id="biblioteka-pytorch">Biblioteka Pytorch</h2>
@@ -723,9 +738,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../quarto-workflows/index.html" class="pagination-link">
-        <span class="nav-page-text">Materiały Pomocnicze</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
