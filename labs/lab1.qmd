@@ -261,8 +261,54 @@ print(f"Dawka dla pacjenta z grypą: {x:.2f} tabletki")
 print(f"Dawka dla pacjenta z zatruciem pokarmowym: {y:.2f} tabletki")
 ```
 :::
-
 ### Biblioteka MatPlotLib
+
+**Biblioteka `matplotlib`** to jedno z najpopularniejszych narzędzi do tworzenia wizualizacji danych w Pythonie. Dzięki niej można tworzyć różnorodne wykresy, od podstawowych liniowych czy słupkowych, po bardziej zaawansowane jak histogramy, wykresy punktowe czy konturowe.
+
+**Najważniejsze cechy biblioteki `matplotlib`:**
+
+1. **Wszechstronność**: Możliwość tworzenia wielu typów wykresów.
+2. **Dostosowywalność**: Wielkie możliwości konfiguracji wyglądu wykresów.
+3. **Interaktywność**: Możliwość tworzenia interaktywnych wizualizacji.
+4. **Integracja z innymi bibliotekami**: `matplotlib` integruje się z wieloma innymi bibliotekami Pythona takimi jak `pandas` czy `numpy`.
+5. **Podmoduł `pyplot`**: Zapewnia interfejs podobny do MATLAB-a, co jest przydatne dla osób znających to środowisko.
+6. **Wsparcie dla różnych formatów**: Możliwość zapisu w wielu popularnych formatach graficznych jak PNG, PDF, SVG i innych.
+
+::: {.callout-tip}
+### Prosty przykład:
+
+Stworzymy wykres przedstawiający funkcje sinus i cosinus na tym samym rysunku z dodatkową konfiguracją:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Dane
+x = np.linspace(0, 2 * np.pi, 400)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Tworzenie wykresu
+plt.figure(figsize=(10,6))  # ustawienie rozmiaru wykresu
+plt.plot(x, y1, label='sin(x)', color='blue', linewidth=2)  # wykres funkcji sinus
+plt.plot(x, y2, label='cos(x)', color='red', linestyle='--', linewidth=2)  # wykres funkcji cosinus
+
+# Dodanie tytułu i etykiet osi
+plt.title('Funkcje sinus i cosinus')
+plt.xlabel('x')
+plt.ylabel('y')
+
+# Dodanie siatki i legendy
+plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+plt.legend()
+
+# Wyświetlenie wykresu
+plt.tight_layout()  # automatyczne dopasowanie elementów wykresu
+plt.show()
+```
+
+Ten kod utworzy wykres funkcji sinus i cosinus. 
+:::
 
 ## Typy danych
 
