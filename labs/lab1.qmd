@@ -449,10 +449,38 @@ Jeśli jednak chodzi o nasz konkretny problem z minimalizacją funkcji kwadratow
 
 
 
-
 ## Typy danych
 
+Kluczową strukturą danych w `numpy` jest `ndarray` (n-wymiarowa tablica danych), która pozwala na przechowywanie i operacje na dużych zbiorach danych w efektywny sposób.
 
+Każda tablica `ndarray` ma atrybut o nazwie `dtype`, który wskazuje typ danych przechowywanych w tablicy. `dtype` definiuje:
+
+1. **Rodzaj danych** (np. liczba całkowita, liczba zmiennoprzecinkowa, boolean, itp.).
+2. **Ilość pamięci** potrzebną do przechowywania jednego elementu tego typu.
+3. **Zakres wartości**, jakie można w niej przechowywać.
+4. **Precyzję** (dla liczb zmiennoprzecinkowych).
+
+Przedstawmy kilka podstawowych typów danych w bibliotece `NumPy` :
+
+- **Liczby całkowite**: `int8`, `int16`, `int32`, `int64` (odpowiednio 8, 16, 32, 64 bity). Dla liczb bez znaku: `uint8`, `uint16`, `uint32`, `uint64`.
+  
+- **Liczby zmiennoprzecinkowe**: `float16`, `float32`, `float64`. Reprezentują liczby zmiennoprzecinkowe o różnej precyzji.
+
+- **Liczby zespolone**: `complex64`, `complex128`.
+
+- **Boolean**: `bool`.
+
+- **Stringi i unicode**: `string_`, `unicode_`.
+
+Użyte przez nas typy danych ma bezpośredni wpływ na ilość pamięci przydzielanej dla tablicy:
+
+- **Rozmiar**: Ilość pamięci potrzebna do przechowywania jednej tablicy jest równa ilości elementów w tablicy pomnożonej przez rozmiar jednego elementu (zdefiniowanego przez typ danych). Na przykład, tablica 1000 elementów typu `int8` będzie zajmować 1000 bajtów pamięci.
+
+- **Operacje**: Wybór odpowiedniego typu danych może wpłynąć na szybkość i dokładność operacji. Na przykład, operacje na typach z mniejszą precyzją (jak `float16`) mogą być szybsze, ale mniej dokładne.
+
+- **Zakres**: Mniejsze typy danych mają ograniczony zakres wartości, które mogą przechowywać. Na przykład, `int8` może przechowywać wartości od -128 do 127.
+
+Dlatego ważne jest, aby wybrać odpowiedni typ danych w zależności od potrzeb. Jeśli potrzebujesz zaoszczędzić pamięć i operacje nie wymagają dużej precyzji, możesz wybrać mniejszy typ danych. Jeśli jednak dokładność jest kluczowa, lepiej jest użyć większego, mimo większego zużycia pamięci.
 
 ## Błędy numeryczne i ich propagacja
 
