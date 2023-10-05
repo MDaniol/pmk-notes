@@ -97,10 +97,136 @@ def funkcja(a, b=2, c=3):
 funkcja(1)  # 1 2 3
 funkcja(1, c=4)  # 1 2 4
 ```
+### *args i **kwargs
+
+`*args` i `**kwargs` to konwencje w Pythonie do obsługi zmiennej liczby argumentów w funkcjach. Dzięki nim możemy przekazywać do funkcji różną liczbę argumentów w sposób bardziej elastyczny.
+
+### *args
+`*args` pozwala na przekazywanie dowolnej liczby pozycyjnych argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako krotka. Przykład:
+
+```python
+def suma(*args):
+    return sum(args)
+
+print(suma(1, 2, 3, 4))  # 10
+print(suma(10, 20))      # 30
+```
+
+### **kwargs
+`**kwargs` pozwala na przekazywanie dowolnej liczby nazwanych (klucz-wartość) argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako słownik. Przykład:
+
+```python
+def opis_osoby(**kwargs):
+    for klucz, wartosc in kwargs.items():
+        print(f"{klucz}: {wartosc}")
+
+opis_osoby(imie="Jan", nazwisko="Kowalski", wiek=30)
+```
+
+Wynik:
+```
+imie: Jan
+nazwisko: Kowalski
+wiek: 30
+```
+
+Oczywiście, można łączyć `*args` i `**kwargs` w jednej funkcji:
+
+```python
+def funkcja_przykladowa(a, b, *args, **kwargs):
+    print(a, b)
+    print(args)
+    print(kwargs)
+
+funkcja_przykladowa(1, 2, 3, 4, 5, klucz1="wartosc1", klucz2="wartosc2")
+```
+
+Wynik:
+```
+1 2
+(3, 4, 5)
+{'klucz1': 'wartosc1', 'klucz2': 'wartosc2'}
+```
 
 ### Pętle
 
+W Pythonie występują dwa rodzaje pętli: `for` i `while`.
 
+#### Pętla `for`
+
+Pętla `for` jest używana do iterowania po sekwencji (to może być lista, krotka, słownik, zbiór lub łańcuch znaków). 
+
+**Składnia**:
+```python
+for zmienna in sekwencja:
+    # instrukcje
+```
+
+**Przykład**:
+Iteracja po liście:
+```python
+fruits = ["jablko", "gruszka", "pietruszka"]
+for fruit in fruits:
+    print(fruit)
+```
+
+Za pomocą funkcji `range()`, pętlę `for` można również użyć do wykonywania określonej liczby iteracji:
+```python
+for i in range(5):  # będzie wykonywać pętlę od 0 do 4
+    print(i)
+```
+
+#### Pętla `while`
+
+Pętla `while` wykonuje blok kodu tak długo, jak długo warunek pętli jest prawdziwy.
+
+**Składnia**:
+```python
+while warunek:
+    # instrukcje
+```
+
+**Przykład**:
+```python
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+```
+
+### Kontrola przepływu w pętlach
+
+Oprócz podstawowych instrukcji pętli, w Pythonie istnieją również instrukcje umożliwiające kontrolę przepływu w pętlach:
+
+- `break`: Przerywa działanie pętli i przechodzi do kolejnej instrukcji poza pętlą.
+  
+  **Przykład**:
+  ```python
+  for i in range(5):
+      if i == 3:
+          break
+      print(i)
+  ```
+
+- `continue`: Przerywa bieżący cykl pętli i przechodzi do następnego cyklu.
+  
+  **Przykład**:
+  ```python
+  for i in range(5):
+      if i == 3:
+          continue
+      print(i)
+  ```
+
+- `else`: W Pythonie pętle mogą mieć opcjonalną klauzulę `else`. Wykonuje się ona, gdy pętla kończy swoje działanie normalnie (nie przez `break`).
+
+  **Przykład**:
+  ```python
+  for i in range(5):
+      print(i)
+  else:
+      print("Pętla zakończona")
+  ```
 
 ### Generatory
 
@@ -180,6 +306,8 @@ plt.xlabel("Próbka")
 plt.ylabel("Amplituda")
 plt.show()
 ```
+
+![Wygenerowany sygnał PPG](images/lab1_ppg.png)
 
 :::
 
@@ -593,11 +721,144 @@ $$1 + \epsilon \neq 1$${#eq-xyp}
 
 ## Zadania 
 
-#### Zadanie 1 - Epsilon Maszynowy
+#### Zadanie 1
+
+Pacjenci w szpitalu otrzymują różne dawki leku w zależności od ich wagi. Stwórz funkcję, która przyjmuje listę wag pacjentów i zwraca listę z odpowiednimi dawkami leku. Dawka leku jest obliczana według następującej zasady:
+
+- Dla pacjentów o wadze poniżej 50 kg: 20 mg leku.
+- Dla pacjentów o wadze od 50 kg do 100 kg: 50 mg leku.
+- Dla pacjentów o wadze powyżej 100 kg: 100 mg leku.
+
+Sygnatura funkcji:
+
+```python
+def oblicz_dawki(wagi: np.ndarray) -> np.ndarray:
+    pass # tutaj bedzie implementacja
+```
+
+Przykładowe działanie:
+
+Dla tablicy wag: `np.array([45, 75, 105])`, funkcja powinna zwrócić: `np.array([20, 50, 100])`.
+
+Przetestuj działanie funkcji na różnych zbiorach danych.
+
+#### Zadanie 2
+
+W szpitalu prowadzone są badania dotyczące wpływu leku na ciśnienie krwi pacjentów. Dla listy pacjentów, która zawiera zapisane ciśnienie krwi przed i po podaniu leku, oblicz procent pacjentów, u których ciśnienie spadło po podaniu leku.
+
+Masz daną następującą listę ciśnień krwi:
+
+```python
+cisnienia = [
+    (120, 115),
+    (140, 138),
+    (130, 125),
+    (150, 155),
+    (110, 108)
+]
+```
+Każda krotka zawiera dwie wartości: pierwsza to ciśnienie przed podaniem leku, a druga po podaniu leku.
+
+Używając pętli, oblicz procent pacjentów z obniżonym ciśnieniem.
+
+#### Zadanie 3
+
+W dziedzinie medycyny obrazowej często stosuje się przekształcenia obrazów. Jednym z najprostszych z nich jest progowanie (thresholding). Polega ono na porównywaniu wartości danego piksela z wartością progową i wpisywanie do niego wartości 255 jeśli jest większy od wartości progowej lub 0 jeśli jest mniejszy. 
+
+Twoim zadaniem jest napisanie funkcji `thresholding`, która przyjmuje dwuwymiarową macierz (obraz) oraz wartość progową `T` i zwraca nową macierz po operacji thresholdingu.
+
+Każdy element tej macierzy reprezentuje piksel obrazu o wartościach od 0 (czarny) do 255 (biały). Piksele poniżej wartości `T` powinny być przekształcone na 0, podczas gdy piksele powyżej `T` powinny być przekształcone na 255.
+
+**Sygnatura funkcji:**
+```python
+def thresholding(obraz: np.ndarray, T: int) -> np.ndarray:
+    pass #tutaj znajdzie sie implementacja Waszej funkcji
+```
+
+Przykładowa macierz:
+```python
+obraz = [
+    [120, 130, 140],
+    [150, 160, 170],
+    [180, 190, 200]
+]
+```
+
+Jeśli wartość progowa `T` wynosi 150, przekształcony obraz będzie wyglądać następująco:
+```
+[
+    [0, 0, 0],
+    [255, 255, 255],
+    [255, 255, 255]
+]
+```
+
+#### Zadanie 4 
+
+Dane z EEG (elektroencefalografia) pacjenta są zapisane w postaci tablicy `numpy` reprezentującej napięcie zarejestrowane w kolejnych punktach czasowych. Chcielibyśmy analizować te dane w segmentach o określonej długości czasu (tzw. okna czasowe). Napisz generator, który będzie zwracać fragmenty tej tablicy.
+
+Argumenty funkcji:
+1. Tablica `numpy` o nazwie `eeg_data`, reprezentująca dane EEG.
+2. Liczba próbek na segment, `segment_length`.
+
+Generator ma zwracać kolejne segmenty danych o długości `segment_length`. Jeśli w tablicy pozostanie mniej niż `segment_length` próbek, zwróć te pozostałe próbki.
+
+**Sygnatura funkcji:**
+```python
+def generator_segmentow_eeg(eeg_data: np.ndarray, segment_length: int):
+    ...
+```
+
+**Przykład:**
+Załóżmy, że mamy dane EEG w tablicy: `np.array([0.5, 0.6, 0.7, 0.55, 0.65, 0.7, 0.8, 0.85])` i chcemy analizować segmenty o długości 3 próbek. 
+- Pierwsze wywołanie `next()` zwróci `np.array([0.5, 0.6, 0.7])`.
+- Drugie wywołanie `next()` zwróci `np.array([0.55, 0.65, 0.7])`.
+- Trzecie wywołanie `next()` zwróci `np.array([0.8, 0.85])`.
+- Kolejne wywołanie `next()` spowoduje podniesienie wyjątku `StopIteration`.
+
+**Zadanie dodatkowe:**
+Używając biblioteki NumPy wygeneruj tablicę 10.000 próbek sygnału EEG, dla uproszczenia przyjmijmy że będą to wartości losowe z przedziału 0-1, w typie danych `float16`. Przetestuj działanie swojego generatora dla różnych długości okna czasowego.
+
+#### Zadanie 5
+
+**Zadanie: Kalkulator z `*args` i `**kwargs`**
+
+Celem zadania jest stwotzenie uniwersalnego kalkulatora zdolnego do wykonania różnych operacji matematycznych na dowolnej liczbie argumentów z wykorzystaniem `*args` i `**kwargs`.
+
+**Instrukcje:**
+
+1. Zaimplementuj funkcję o nazwie `universal_calculator`.
+2. Funkcja powinna przyjmować argumenty pozycyjne (`*args`) reprezentujące wartości liczbowe, na których chcemy wykonać operacje.
+3. Funkcja powinna również akceptować argumenty nazwane (`**kwargs`) do kontrolowania operacji:
+   - `operation`: określa typ operacji (możliwości: `"add"`, `"substract"`, `"multiply"`, `"divide"`). Domyślnie powinna być to operacja dodawania.
+   - `power`: podniesienie wyniku do podanej potęgi.
+   - **(Dla chętnych, opcjonalnie)** `show_steps`: jeśli ustawiono na `True`, funkcja powinna dodatkowo drukować kroki obliczeń.
+4. Funkcja powinna zwracać końcowy wynik operacji.
+
+
+**Przykład użycia:**
+
+```python
+print(universal_calculator(1, 2, 3, 4))  # Domyślnie dodaje: 10
+print(universal_calculator(1, 2, 3, operation="multiply"))  # Mnoży: 6
+print(universal_calculator(10, 2, operation="divide", power=2))  # Dzieli, a następnie podnosi wynik do kwadratu: 25.0
+print(universal_calculator(1, 2, 3, operation="add", show_steps=True))
+# Drukowanie kroków:
+# 1 + 2 = 3
+# 3 + 3 = 6
+# Wynik: 6
+```
+
+**Wskazówki:**
+- Wykorzystaj pętlę `for` do iteracji przez `args` podczas wykonywania operacji.
+- Użyj instrukcji warunkowych do wyboru odpowiedniej operacji matematycznej.
+- Upewnij się, że kalkulator obsługuje potencjalne błędy, takie jak dzielenie przez zero.
+
+#### Zadanie 6
 
 Korzystając z definicji epsilonu maszynowego napisz funkcję w języku Python, która oblicza epsilon maszynowy danego typu danych w bibliotece NumPy. Pamiętaj o deklaracji typu danych w obliczeniach. Zalecane jest skorzystanie z pętli. 
 
-#### Zadanie 2 - Paralelizacja
+#### Zadanie 7
 
 Poniżej przedstawiony jest kod, który mierzy czas wykonania pewnej operacji. Wykonaj analogiczne działanie z wykorzystaniem biblioteki NumPy, zmierz czas konieczny do jego wykonania, porównaj ten czas z czasem wykonania tradycyjnej metody.
 
@@ -619,7 +880,7 @@ print(f"Traditional loop took {end_time - start_time} seconds")
 
 ```
 
-#### Zadanie 3 - Kalkulator Oszczędnościowy
+#### Zadanie 8 - Kalkulator Oszczędnościowy
 Twoim zadaniem jest stworzenie prostego kalkulatora oszczędnościowego, który pomoże użytkownikowi przewidzieć, ile pieniędzy uda mu się zaoszczędzić w ciągu określonego czasu.
 
 **Wymagania:**
