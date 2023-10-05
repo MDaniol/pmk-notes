@@ -108,6 +108,89 @@ funkcja(1, c=4)  # 1 2 4
 
 ### Pętle
 
+
+
+### Generatory
+
+Generator w Pythonie to specjalny rodzaj iteratora, który pozwala na generowanie wartości "na bieżąco" w miarę ich potrzeby, zamiast generować wszystkie wartości naraz i przechowywać je w pamięci. Dzięki temu generatory są bardziej wydajne pod względem alokacji pamięci. Ma to znaczenie zwłaszcza przy pracy z dużymi zbiorami danych.
+
+Generatory tworzy się głównie w dwóch sposobach:
+
+1. Za pomocą funkcji i słowa kluczowego yield.
+2. Za pomocą wyrażeń generatora (podobnie jak list comprehension, ale w nawiasach okrągłych).
+
+Przykład:
+
+```python
+def even_numbers_generator(n):
+    for i in range(n):
+        if i % 2 == 0:
+            yield i
+
+gen = even_numbers_generator(10)
+for number in gen:
+    print(number)
+```
+
+Oto inny przykład generatora, który zwraca nieskończony ciąg liczb w postaci ciągu geometrycznego o zadanej podstawie:
+
+```python
+def geometric_sequence(a, r):
+    while True:
+        yield a
+        a *= r
+
+# Przykład użycia
+gen = geometric_sequence(1, 2)  # podstawa 1, iloraz 2
+for _ in range(5):
+    print(next(gen))
+```
+
+Generatory są także często używane do wczytywania danych
+
+::: {.callout-tip}
+### Modelowanie sygnału PPG z wykorzystaniem generatora
+Rozważmy generator danych dla symulacji sygnału fotopletyzmograficznego (PPG), który jest wykorzystywany do monitorowania tętna i saturacji tlenu w krwi. Sygnał PPG jest rejestrowany za pomocą czujnika optycznego umieszczonego na skórze, który wykrywa zmiany objętości krwi w naczyniach krwionośnych.
+
+Nie zawsze mamy dostęp do takiego sygnału, co więcej - czasami chcemy sami wygenerowac sygnały o konkretnym kształcie, charakterystycznych zniekształceniach, aby przetestowac pewne algorytmy.
+
+Możemy to zrobic z wykorzystaniem generatora:
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def synthetic_ppg_generator(frequency=100):
+    """
+    Generator syntetycznego sygnału PPG.
+    
+    frequency: częstotliwość próbkowania sygnału [Hz]
+    """
+    t = 0  # czas [s]
+    dt = 1.0 / frequency
+    while True:
+        # Modelujemy podstawowy kształt fali PPG przy użyciu równania
+        ppg_wave = np.abs(np.sin(t)) + 0.3 * np.sin(4 * np.pi * t) - 0.15 * np.sin(6 * np.pi * t)
+        
+        yield ppg_wave
+        t += dt
+
+# Przykład użycia:
+ppg_gen = synthetic_ppg_generator(frequency=100)
+
+# Wygenerowanie 5s sygnału PPG (500 próbek, ponieważ frequency=100Hz)
+ppg_signal = [next(ppg_gen) for _ in range(500)]
+
+# Rysujemy sygnał
+plt.plot(ppg_signal)
+plt.title("Syntetyczny sygnał PPG")
+plt.xlabel("Próbka")
+plt.ylabel("Amplituda")
+plt.show()
+```
+
+:::
+
 ## Wybrane biblioteki numeryczne Pythona
 
 ### Biblioteka Numpy
