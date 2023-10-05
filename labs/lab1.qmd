@@ -75,8 +75,6 @@ Funkcje mogą przyjmowac argumenty:
 
 **Argumenty pozycyjne:** Są to najczęściej używane argumenty. Przekazujesz je w kolejności, w jakiej są wymienione w definicji funkcji.
 
-\
-
 ```python
 def funkcja(a, b, c):
     print(a, b, c)
@@ -84,19 +82,13 @@ def funkcja(a, b, c):
 funkcja(1, 2, 3)  # 1 2 3
 ```
 
-\
-
 **Argumenty nazwane** (keyword arguments): Przekazujemy wartość, wskazując nazwę argumentu.
 
 ```python
 funkcja(a=1, c=3, b=2)  # 1 2 3
 ```
 
-\
-
 **Domyślne wartości argumentów**: Możesz ustawić domyślne wartości dla niektórych (lub wszystkich) argumentów.
-
-\
 
 ```python
 def funkcja(a, b=2, c=3):
