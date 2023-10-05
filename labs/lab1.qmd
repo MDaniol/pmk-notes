@@ -101,7 +101,7 @@ funkcja(1, c=4)  # 1 2 4
 
 `*args` i `**kwargs` to konwencje w Pythonie do obsługi zmiennej liczby argumentów w funkcjach. Dzięki nim możemy przekazywać do funkcji różną liczbę argumentów w sposób bardziej elastyczny.
 
-### *args
+#### *args
 `*args` pozwala na przekazywanie dowolnej liczby pozycyjnych argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako krotka. Przykład:
 
 ```python
@@ -112,7 +112,7 @@ print(suma(1, 2, 3, 4))  # 10
 print(suma(10, 20))      # 30
 ```
 
-### **kwargs
+#### **kwargs
 `**kwargs` pozwala na przekazywanie dowolnej liczby nazwanych (klucz-wartość) argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako słownik. Przykład:
 
 ```python
