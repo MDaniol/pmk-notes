@@ -169,8 +169,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#czym-jest-python-i-jak-działa" id="toc-czym-jest-python-i-jak-działa" class="nav-link" data-scroll-target="#czym-jest-python-i-jak-działa">Czym jest Python i jak działa</a></li>
   <li><a href="#funkcje-i-przekazywanie-argumentów" id="toc-funkcje-i-przekazywanie-argumentów" class="nav-link" data-scroll-target="#funkcje-i-przekazywanie-argumentów">Funkcje i przekazywanie argumentów</a></li>
   <li><a href="#args-i-kwargs" id="toc-args-i-kwargs" class="nav-link" data-scroll-target="#args-i-kwargs">*args i **kwargs</a></li>
-  <li><a href="#args" id="toc-args" class="nav-link" data-scroll-target="#args">*args</a></li>
-  <li><a href="#kwargs" id="toc-kwargs" class="nav-link" data-scroll-target="#kwargs">**kwargs</a></li>
   <li><a href="#pętle" id="toc-pętle" class="nav-link" data-scroll-target="#pętle">Pętle</a></li>
   <li><a href="#kontrola-przepływu-w-pętlach" id="toc-kontrola-przepływu-w-pętlach" class="nav-link" data-scroll-target="#kontrola-przepływu-w-pętlach">Kontrola przepływu w pętlach</a></li>
   <li><a href="#generatory" id="toc-generatory" class="nav-link" data-scroll-target="#generatory">Generatory</a></li>
@@ -270,9 +268,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="args-i-kwargs" class="level3">
 <h3 class="anchored" data-anchor-id="args-i-kwargs">*args i **kwargs</h3>
 <p><code>*args</code> i <code>**kwargs</code> to konwencje w Pythonie do obsługi zmiennej liczby argumentów w funkcjach. Dzięki nim możemy przekazywać do funkcji różną liczbę argumentów w sposób bardziej elastyczny.</p>
-</section>
-<section id="args" class="level3">
-<h3 class="anchored" data-anchor-id="args">*args</h3>
+<section id="args" class="level4">
+<h4 class="anchored" data-anchor-id="args">*args</h4>
 <p><code>*args</code> pozwala na przekazywanie dowolnej liczby pozycyjnych argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako krotka. Przykład:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> suma(<span class="op">*</span>args):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">sum</span>(args)</span>
@@ -280,8 +277,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(suma(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))  <span class="co"># 10</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(suma(<span class="dv">10</span>, <span class="dv">20</span>))      <span class="co"># 30</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="kwargs" class="level3">
-<h3 class="anchored" data-anchor-id="kwargs">**kwargs</h3>
+<section id="kwargs" class="level4">
+<h4 class="anchored" data-anchor-id="kwargs">**kwargs</h4>
 <p><code>**kwargs</code> pozwala na przekazywanie dowolnej liczby nazwanych (klucz-wartość) argumentów do funkcji. W ciele funkcji argumenty te są dostępne jako słownik. Przykład:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> opis_osoby(<span class="op">**</span>kwargs):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> klucz, wartosc <span class="kw">in</span> kwargs.items():</span>
@@ -303,6 +300,7 @@ wiek: 30</code></pre>
 <pre><code>1 2
 (3, 4, 5)
 {'klucz1': 'wartosc1', 'klucz2': 'wartosc2'}</code></pre>
+</section>
 </section>
 <section id="pętle" class="level3">
 <h3 class="anchored" data-anchor-id="pętle">Pętle</h3>
