@@ -644,6 +644,29 @@ Przykład wykorzystania biblioteki PyTorch
 </section>
 <section id="typy-danych" class="level2">
 <h2 class="anchored" data-anchor-id="typy-danych">Typy danych</h2>
+<p>Kluczową strukturą danych w <code>numpy</code> jest <code>ndarray</code> (n-wymiarowa tablica danych), która pozwala na przechowywanie i operacje na dużych zbiorach danych w efektywny sposób.</p>
+<p>Każda tablica <code>ndarray</code> ma atrybut o nazwie <code>dtype</code>, który wskazuje typ danych przechowywanych w tablicy. <code>dtype</code> definiuje:</p>
+<ol type="1">
+<li><strong>Rodzaj danych</strong> (np. liczba całkowita, liczba zmiennoprzecinkowa, boolean, itp.).</li>
+<li><strong>Ilość pamięci</strong> potrzebną do przechowywania jednego elementu tego typu.</li>
+<li><strong>Zakres wartości</strong>, jakie można w niej przechowywać.</li>
+<li><strong>Precyzję</strong> (dla liczb zmiennoprzecinkowych).</li>
+</ol>
+<p>Przedstawmy kilka podstawowych typów danych w bibliotece <code>NumPy</code> :</p>
+<ul>
+<li><p><strong>Liczby całkowite</strong>: <code>int8</code>, <code>int16</code>, <code>int32</code>, <code>int64</code> (odpowiednio 8, 16, 32, 64 bity). Dla liczb bez znaku: <code>uint8</code>, <code>uint16</code>, <code>uint32</code>, <code>uint64</code>.</p></li>
+<li><p><strong>Liczby zmiennoprzecinkowe</strong>: <code>float16</code>, <code>float32</code>, <code>float64</code>. Reprezentują liczby zmiennoprzecinkowe o różnej precyzji.</p></li>
+<li><p><strong>Liczby zespolone</strong>: <code>complex64</code>, <code>complex128</code>.</p></li>
+<li><p><strong>Boolean</strong>: <code>bool</code>.</p></li>
+<li><p><strong>Stringi i unicode</strong>: <code>string_</code>, <code>unicode_</code>.</p></li>
+</ul>
+<p>Użyte przez nas typy danych ma bezpośredni wpływ na ilość pamięci przydzielanej dla tablicy:</p>
+<ul>
+<li><p><strong>Rozmiar</strong>: Ilość pamięci potrzebna do przechowywania jednej tablicy jest równa ilości elementów w tablicy pomnożonej przez rozmiar jednego elementu (zdefiniowanego przez typ danych). Na przykład, tablica 1000 elementów typu <code>int8</code> będzie zajmować 1000 bajtów pamięci.</p></li>
+<li><p><strong>Operacje</strong>: Wybór odpowiedniego typu danych może wpłynąć na szybkość i dokładność operacji. Na przykład, operacje na typach z mniejszą precyzją (jak <code>float16</code>) mogą być szybsze, ale mniej dokładne.</p></li>
+<li><p><strong>Zakres</strong>: Mniejsze typy danych mają ograniczony zakres wartości, które mogą przechowywać. Na przykład, <code>int8</code> może przechowywać wartości od -128 do 127.</p></li>
+</ul>
+<p>Dlatego ważne jest, aby wybrać odpowiedni typ danych w zależności od potrzeb. Jeśli potrzebujesz zaoszczędzić pamięć i operacje nie wymagają dużej precyzji, możesz wybrać mniejszy typ danych. Jeśli jednak dokładność jest kluczowa, lepiej jest użyć większego, mimo większego zużycia pamięci.</p>
 </section>
 <section id="błędy-numeryczne-i-ich-propagacja" class="level2">
 <h2 class="anchored" data-anchor-id="błędy-numeryczne-i-ich-propagacja">Błędy numeryczne i ich propagacja</h2>
