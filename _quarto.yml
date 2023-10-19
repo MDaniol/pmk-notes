@@ -40,6 +40,9 @@ website:
       - href: labs/lab2.qmd
         text: Laboratorium 2
 
+      - href: labs/lab3.qmd
+        text: Laboratorium 3
+
       # - section: quarto-workflows/index.qmd
       #   text: Materiały Pomocnicze
       #   contents: 
