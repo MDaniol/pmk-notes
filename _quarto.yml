@@ -43,7 +43,7 @@ website:
       - href: labs/lab3.qmd
         text: Laboratorium 3
 
-      - href: labs/lab8.qmd
+      - href: labs/lab8_1.qmd
         text: Laboratorium 8
 
       # - section: quarto-workflows/index.qmd
