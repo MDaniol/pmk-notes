@@ -45,5 +45,6 @@ Innymi słowy. W algorytmie RANSAC iteracyjnie losujemy próbki, dopasowujemy mo
 Zaimplementuj algorytm RANSAC w Pythonie dla danych 1D (tablica wartości). Przetestuj jego działanie dla różnych parametrów oraz różnych ilości iteracji.
 
 ```python
-
+def ransac(X : np.ndarray, y : np.ndarray, num_samples : int, max_iters : int, threshold : float):
+    pass
 ```
