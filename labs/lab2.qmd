@@ -591,3 +591,4 @@ def our_gradient(x, step=1):
    pass
 ```
 
+# RANSAC
