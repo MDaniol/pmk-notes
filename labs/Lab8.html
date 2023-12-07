@@ -189,7 +189,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#zastosowanie" id="toc-zastosowanie" class="nav-link" data-scroll-target="#zastosowanie">Zastosowanie</a></li>
   </ul></li>
   <li><a href="#algorytm-ransac-1" id="toc-algorytm-ransac-1" class="nav-link" data-scroll-target="#algorytm-ransac-1">Algorytm RANSAC</a></li>
-  <li><a href="#zadanie" id="toc-zadanie" class="nav-link" data-scroll-target="#zadanie">Zadanie:</a></li>
+  <li><a href="#zadanie" id="toc-zadanie" class="nav-link" data-scroll-target="#zadanie">Zadanie:</a>
+  <ul class="collapse">
+  <li><a href="#przepis-na-ransaca" id="toc-przepis-na-ransaca" class="nav-link" data-scroll-target="#przepis-na-ransaca">Przepis na RANSACa:</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/Lab8.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -253,8 +256,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Zaimplementuj algorytm RANSAC w Pythonie dla danych 1D (tablica wartości). Przetestuj jego działanie dla różnych parametrów oraz różnych ilości iteracji.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ransac(X : np.ndarray, y : np.ndarray, num_samples : <span class="bu">int</span>, max_iters : <span class="bu">int</span>, threshold : <span class="bu">float</span>):</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="przepis-na-ransaca" class="level3">
+<h3 class="anchored" data-anchor-id="przepis-na-ransaca">Przepis na RANSACa:</h3>
+<ol type="1">
+<li><p>Zainicjalizować dwie zmienne: best_model, best_ratio z rozsądnymi parametrami</p></li>
+<li><p>Dla każdej z iteracji:</p>
+<p>2.1. Wylosować próbki z X oraz y (wzajemnie sobie odpowiadających), o ilości num_samples</p>
+<p>2.2. Wyznaczamy parametry modelu tylko i wyłącznie z wylosowanych próbek</p>
+<p>2.3. Wyznaczamy nowe wartości y bazując na modelu i na wszystkich X</p>
+<p>2.4. Obliczamy błąd kwadratowy między wyznaczonymi wartościami a y</p>
+<p>2.5. Liczymy ile pkt ma błąd mniejszy niż threshold</p>
+<p>2.6. Wyznaczamy stosunek ilości pkt spełniających warunek z 2.5 do ogółu =&gt; current_ratio</p>
+<p>2.7. Jeżeli current_ratio &gt; best_ratio:</p>
+<pre><code> 2.7.1. best_model = current_model
+
+ 2.7.2. best_ratio = current_ratio</code></pre>
+<p>2.8 sprawdzamy iteracje petli, czy nie osiagnelismy max_iters</p></li>
+<li><p>Zwracamy nasz best_model</p></li>
+</ol>
 
 
+</section>
 </section>
 </section>
 
