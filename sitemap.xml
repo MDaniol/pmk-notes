@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/rstudio.html</loc>
-    <lastmod>2023-12-07T08:47:22.122Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/jupyter.html</loc>
-    <lastmod>2023-12-07T08:47:21.386Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/learning-more.html</loc>
-    <lastmod>2023-12-07T08:47:20.510Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/labs/lab1.html</loc>
-    <lastmod>2023-12-07T08:47:19.798Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/labs/Lab8.html</loc>
-    <lastmod>2023-12-07T08:47:17.882Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/index.html</loc>
-    <lastmod>2023-12-07T08:47:16.762Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/explore.html</loc>
-    <lastmod>2023-12-07T08:47:15.910Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/labs/lab2.html</loc>
-    <lastmod>2023-12-07T08:47:17.546Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/labs/lab3.html</loc>
-    <lastmod>2023-12-07T08:47:18.630Z</lastmod>
-  </url>
-  <url>
-    <loc>https://mdaniol.github.io/pmk-notes/transition-from-rmarkdown.html</loc>
-    <lastmod>2023-12-07T08:47:20.242Z</lastmod>
+    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/browser.html</loc>
+    <lastmod>2023-12-07T11:11:33.390Z</lastmod>
   </url>
   <url>
     <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/index.html</loc>
-    <lastmod>2023-12-07T08:47:20.890Z</lastmod>
+    <lastmod>2023-12-07T11:11:32.634Z</lastmod>
   </url>
   <url>
-    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/browser.html</loc>
-    <lastmod>2023-12-07T08:47:21.706Z</lastmod>
+    <loc>https://mdaniol.github.io/pmk-notes/learning-more.html</loc>
+    <lastmod>2023-12-07T11:11:31.766Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/labs/lab3.html</loc>
+    <lastmod>2023-12-07T11:11:31.026Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/labs/Lab8.html</loc>
+    <lastmod>2023-12-07T11:11:29.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/explore.html</loc>
+    <lastmod>2023-12-07T11:11:27.882Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/index.html</loc>
+    <lastmod>2023-12-07T11:11:26.750Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/labs/lab2.html</loc>
+    <lastmod>2023-12-07T11:11:28.706Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/labs/lab1.html</loc>
+    <lastmod>2023-12-07T11:11:30.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/transition-from-rmarkdown.html</loc>
+    <lastmod>2023-12-07T11:11:31.494Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/jupyter.html</loc>
+    <lastmod>2023-12-07T11:11:32.274Z</lastmod>
+  </url>
+  <url>
+    <loc>https://mdaniol.github.io/pmk-notes/quarto-workflows/rstudio.html</loc>
+    <lastmod>2023-12-07T11:11:33.066Z</lastmod>
   </url>
 </urlset>
