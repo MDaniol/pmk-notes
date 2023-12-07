@@ -21,6 +21,7 @@ W ciągu semestru poruszymy następujące zagadnienia:
 1. Zajęcia wprowadzające, przedstawienie programu laboratorium. Praktycznie wprowadzenie do problemów numerycznych. Przypomnienie podstaw biblioteki NumPy/SciPy/Matplotlib. Wprowadzenie do biblioteki PyTorch.
 2. Różniczkowanie numeryczne. Sposoby obliczania gradientu. Podstawowe typu gradientu. Splot. Analiza błędów numerycznych w porównaniu do rozwiązań analitycznych. Implementacja gradientów analitycznych. Przykłady praktyczne.
 3. Całkowanie numeryczne. Podstawowe algorytmy całkowania numerycznego. Analiza błędu całkowania. Całkowanie numeryczne, a analityczne. Przykłady praktyczne.
+4. Algorytm RANSAC
 
 
 

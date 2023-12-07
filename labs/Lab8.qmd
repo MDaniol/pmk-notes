@@ -1,0 +1,49 @@
+# Laboratorium 8
+
+## Zakres Tematyczny
+
+1. Problem Wartości Odstających
+2. Algorytm RANSAC
+
+## Wprowadzenie
+
+
+### Podstawowy Problem
+W wielu dziedzinach nauki i inżynierii często spotykamy się z zadaniem dopasowania modelu matematycznego do zestawu danych. Te dane mogą pochodzić z różnych źródeł, takich jak pomiary fizyczne, obrazy, sygnały dźwiękowe czy dane geolokacyjne. Jednak rzadko dane te są idealne – często zawierają "szum", czyli błędy pomiarowe, zakłócenia lub niepożądane artefakty.
+
+### Szum w Danych
+Szum może mieć różne źródła, od błędów instrumentacji, przez zakłócenia środowiskowe, po błędy ludzkie. W efekcie, dane, które analizujemy, mogą być dalekie od idealnych i zawierać elementy, które znacząco odbiegają od spodziewanego modelu. Rozróżniamy tutaj szum "miękki", który powoduje niewielkie odstępstwa od modelu, oraz "outliery" (wartości odstające) czyli punkty danych, które znacząco odbiegają od pozostałych.
+
+### Wyzwanie Dopasowania Modeli
+Głównym wyzwaniem w dopasowywaniu modeli do danych zaszumionych jest zidentyfikowanie i uwzględnienie wpływu szumu na wyniki. Model, który idealnie pasuje do wszystkich punktów danych, często nie jest najlepszym rozwiązaniem, gdyż może być nadmiernie "dopasowany" do szumu, a nie do rzeczywistej struktury danych.
+
+### Metody Radzenia Sobie ze Szumem
+Istnieją różne metody radzenia sobie z szumem w danych. Jedną z popularnych technik jest stosowanie metod statystycznych, które pozwalają na wyodrębnienie głównych trendów w danych, pomijając punkty odstające. Inne podejścia obejmują filtrowanie danych przed ich analizą lub użycie zaawansowanych technik, takich jak algorytmy uczenia maszynowego, które są odporne na pewien poziom szumu.
+
+### Algorytm RANSAC
+Jednym ze specyficznych podejść do problemu dopasowywania modeli w obecności szumu jest algorytm RANSAC. Jest to metoda iteracyjna, która próbuje znaleźć najbardziej wiarygodny model przez wielokrotne losowe próbkowanie punktów danych i ocenianie, jak dobrze wybrane podzbiory pasują do potencjalnego modelu. RANSAC jest szczególnie przydatny w sytuacjach, gdzie mamy do czynienia z dużą liczbą outlierów.
+
+### Zastosowanie
+Dopasowywanie modeli w danych zaszumionych ma szerokie zastosowanie – od analizy danych naukowych, przez przetwarzanie sygnałów, robotykę, do rozpoznawania wzorców w obrazach i danych wizyjnych.
+
+Wnioskowanie z danych zaszumionych jest kluczowym elementem w wielu obszarach nauki i technologii, a zrozumienie i efektywne stosowanie odpowiednich metod może znacząco wpłynąć na jakość i wiarygodność wyników analiz.
+
+## Algorytm RANSAC
+
+Algorytm RANSAC można streścić następująco, cytując Wikipedię:
+
+1. Wybierz losowy podzbiór oryginalnych danych. Nazwij ten podzbiór hipotetycznymi wartościami "inlierów".
+2. Następnie model jest fitowany do wybranych inlierów.
+3. Wszystkie dane są następnie testowane względem dopasowanego modelu. Wszystkie punkty danych (oryginalnych danych), które dobrze pasują do oszacowanego modelu, zgodnie z pewną funkcją straty specyficzną dla modelu, nazywane są zbiorem konsensusu (tj. zbiorem wartości nieodstających (inliers) dla modelu).
+4. Oszacowany model jest dość dobry, jeśli wystarczająco wiele punktów danych zostało sklasyfikowanych jako część zestawu konsensusu.
+5. Model może zostać ulepszony poprzez ponowne oszacowanie go przy użyciu wszystkich punktów danych zestawu konsensusu. Jakość dopasowania jako miara tego, jak dobrze model pasuje do zestawu konsensusu, zostanie wykorzystana do wyostrzenia dopasowania modelu w miarę upływu iteracji (np. poprzez ustawienie tej miary jako kryterium jakości dopasowania w następnej iteracji).
+
+Innymi słowy. W algorytmie RANSAC iteracyjnie losujemy próbki, dopasowujemy model, a następnie sprawdzamy jak bardzo ten model odstaje od wszystkich próbek. Im mniej odstaje - tym lepiej. Najmniej odstająca wersja modelu - to nasz fit.
+
+## Zadanie:
+
+Zaimplementuj algorytm RANSAC w Pythonie dla danych 1D (tablica wartości). Przetestuj jego działanie dla różnych parametrów oraz różnych ilości iteracji.
+
+```python
+
+```
