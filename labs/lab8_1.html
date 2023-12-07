@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Notatki do przedmiotu PMK - From the Browser</title>
+<title>Notatki do przedmiotu PMK – lab8_1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../labs/lab3.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">From the Browser</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/lab8_1.html">Laboratorium 8</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -127,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../labs/lab8_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../labs/lab8_1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Laboratorium 8</span></a>
   </div>
 </li>
@@ -141,67 +176,108 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#edit-content-on-an-existing-page" id="toc-edit-content-on-an-existing-page" class="nav-link active" data-scroll-target="#edit-content-on-an-existing-page">Edit content on an existing page</a></li>
-  <li><a href="#commit-and-publish" id="toc-commit-and-publish" class="nav-link" data-scroll-target="#commit-and-publish">Commit and publish</a></li>
-  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
+  <li><a href="#laboratorium-8" id="toc-laboratorium-8" class="nav-link active" data-scroll-target="#laboratorium-8">Laboratorium 8</a>
+  <ul class="collapse">
+  <li><a href="#zakres-tematyczny" id="toc-zakres-tematyczny" class="nav-link" data-scroll-target="#zakres-tematyczny">Zakres Tematyczny</a></li>
+  <li><a href="#wprowadzenie" id="toc-wprowadzenie" class="nav-link" data-scroll-target="#wprowadzenie">Wprowadzenie</a>
+  <ul class="collapse">
+  <li><a href="#podstawowy-problem" id="toc-podstawowy-problem" class="nav-link" data-scroll-target="#podstawowy-problem">Podstawowy Problem</a></li>
+  <li><a href="#szum-w-danych" id="toc-szum-w-danych" class="nav-link" data-scroll-target="#szum-w-danych">Szum w Danych</a></li>
+  <li><a href="#wyzwanie-dopasowania-modeli" id="toc-wyzwanie-dopasowania-modeli" class="nav-link" data-scroll-target="#wyzwanie-dopasowania-modeli">Wyzwanie Dopasowania Modeli</a></li>
+  <li><a href="#metody-radzenia-sobie-ze-szumem" id="toc-metody-radzenia-sobie-ze-szumem" class="nav-link" data-scroll-target="#metody-radzenia-sobie-ze-szumem">Metody Radzenia Sobie ze Szumem</a></li>
+  <li><a href="#algorytm-ransac" id="toc-algorytm-ransac" class="nav-link" data-scroll-target="#algorytm-ransac">Algorytm RANSAC</a></li>
+  <li><a href="#zastosowanie" id="toc-zastosowanie" class="nav-link" data-scroll-target="#zastosowanie">Zastosowanie</a></li>
+  </ul></li>
+  <li><a href="#algorytm-ransac-1" id="toc-algorytm-ransac-1" class="nav-link" data-scroll-target="#algorytm-ransac-1">Algorytm RANSAC</a></li>
+  <li><a href="#zadanie" id="toc-zadanie" class="nav-link" data-scroll-target="#zadanie">Zadanie:</a>
+  <ul class="collapse">
+  <li><a href="#przepis-na-ransaca" id="toc-przepis-na-ransaca" class="nav-link" data-scroll-target="#przepis-na-ransaca">Przepis na RANSACa:</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/quarto-workflows/browser.md" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/MDaniol/pmk-notes/edit/main/labs/lab8_1.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/MDaniol/pmk-notes/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">From the Browser</h1>
-</div>
 
 
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<p>A workflow from the browser if good for getting started (since you do not need to install additional software) and for making small contributions, but is definitely limited. Once you feel comfortable here, you can move to a different setup.</p>
-<p>Here’s an example of editing content on an existing page.</p>
-<section id="edit-content-on-an-existing-page" class="level2">
-<h2 class="anchored" data-anchor-id="edit-content-on-an-existing-page">Edit content on an existing page</h2>
-<p>Let’s change the date on the home page of this website.</p>
-<p>In your repository, navigate to <code>index.md</code>. Then, click the pencil icon in the top right to edit directly.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-edit-index.png" class="img-fluid figure-img" style="width:95.0%"></p>
-</figure>
-</div>
-<p>We are now in the “Edit file” tab of the editor, where we can make modifications. Let’s change the date to today’s date. Click the “Preview” tab to see your changes. You can even check the “Show diff” box on the right side to see the changes you’ve made.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-preview-show-diff.png" class="img-fluid figure-img" style="width:95.0%"></p>
-</figure>
-</div>
-<p>While you’re here, see if there are additional changes to the text you’d like to make. Maybe changing the title or author at the top, or for the main text on the home page of the website.</p>
-<p>Our <code>index.md</code> file is written in Markdown, which enables you to make simple text formatting. As you go back and forth from “Edit file” to “Preview”, notice the patterns of how the Markdown text looks when it is as source (“Edit file”) and when it is formatted (“Preview”). For example, in Markdown, you can make text as a header with <code>#</code> symbols, bold or italic with <code>*</code> symbols, and hyperlinks with <code>[]()</code>. Notice that spacing is important: for example, there are carriage returns (when you hit the “return” key) before any bullet points. You can learn the short list of Markdown rules here: <a href="https://quarto.org/docs/authoring/markdown-basics.html">https://quarto.org/docs/authoring/markdown-basics</a>.</p>
+<section id="laboratorium-8" class="level1">
+<h1>Laboratorium 8</h1>
+<section id="zakres-tematyczny" class="level2">
+<h2 class="anchored" data-anchor-id="zakres-tematyczny">Zakres Tematyczny</h2>
+<ol type="1">
+<li>Problem Wartości Odstających</li>
+<li>Algorytm RANSAC</li>
+</ol>
 </section>
-<section id="commit-and-publish" class="level2">
-<h2 class="anchored" data-anchor-id="commit-and-publish">Commit and publish</h2>
-<p>Commit your changes by scrolling to the bottom of the page and writing a commit message - a note to yourself and others about what changes you made. Write your commit message and then click the green “Commit changes” button.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-commit.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-<p>Now, click back to the main page of your GitHub repository. You should see the orange dot <a href="../explore.html#confirm">confirming your website is published</a>. You’ll have to wait for the GitHub Action to tell quarto to build your site for you to see the update, but it will be there!</p>
+<section id="wprowadzenie" class="level2">
+<h2 class="anchored" data-anchor-id="wprowadzenie">Wprowadzenie</h2>
+<section id="podstawowy-problem" class="level3">
+<h3 class="anchored" data-anchor-id="podstawowy-problem">Podstawowy Problem</h3>
+<p>W wielu dziedzinach nauki i inżynierii często spotykamy się z zadaniem dopasowania modelu matematycznego do zestawu danych. Te dane mogą pochodzić z różnych źródeł, takich jak pomiary fizyczne, obrazy, sygnały dźwiękowe czy dane geolokacyjne. Jednak rzadko dane te są idealne – często zawierają “szum”, czyli błędy pomiarowe, zakłócenia lub niepożądane artefakty.</p>
 </section>
-<section id="limitations" class="level2">
-<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
-<p>While awesome that we can edit using GitHub directly from the browser, there are obvious limitations. One is that to see your edits show up in your book, you have to publish using the GitHub Action. This is slow. Another limitation is that we can only work on one file at a time and commit them each separately, which also is slow. Using additional software can make things much better, as we explore in subsequent chapters.</p>
+<section id="szum-w-danych" class="level3">
+<h3 class="anchored" data-anchor-id="szum-w-danych">Szum w Danych</h3>
+<p>Szum może mieć różne źródła, od błędów instrumentacji, przez zakłócenia środowiskowe, po błędy ludzkie. W efekcie, dane, które analizujemy, mogą być dalekie od idealnych i zawierać elementy, które znacząco odbiegają od spodziewanego modelu. Rozróżniamy tutaj szum “miękki”, który powoduje niewielkie odstępstwa od modelu, oraz “outliery” (wartości odstające) czyli punkty danych, które znacząco odbiegają od pozostałych.</p>
+</section>
+<section id="wyzwanie-dopasowania-modeli" class="level3">
+<h3 class="anchored" data-anchor-id="wyzwanie-dopasowania-modeli">Wyzwanie Dopasowania Modeli</h3>
+<p>Głównym wyzwaniem w dopasowywaniu modeli do danych zaszumionych jest zidentyfikowanie i uwzględnienie wpływu szumu na wyniki. Model, który idealnie pasuje do wszystkich punktów danych, często nie jest najlepszym rozwiązaniem, gdyż może być nadmiernie “dopasowany” do szumu, a nie do rzeczywistej struktury danych.</p>
+</section>
+<section id="metody-radzenia-sobie-ze-szumem" class="level3">
+<h3 class="anchored" data-anchor-id="metody-radzenia-sobie-ze-szumem">Metody Radzenia Sobie ze Szumem</h3>
+<p>Istnieją różne metody radzenia sobie z szumem w danych. Jedną z popularnych technik jest stosowanie metod statystycznych, które pozwalają na wyodrębnienie głównych trendów w danych, pomijając punkty odstające. Inne podejścia obejmują filtrowanie danych przed ich analizą lub użycie zaawansowanych technik, takich jak algorytmy uczenia maszynowego, które są odporne na pewien poziom szumu.</p>
+</section>
+<section id="algorytm-ransac" class="level3">
+<h3 class="anchored" data-anchor-id="algorytm-ransac">Algorytm RANSAC</h3>
+<p>Jednym ze specyficznych podejść do problemu dopasowywania modeli w obecności szumu jest algorytm RANSAC. Jest to metoda iteracyjna, która próbuje znaleźć najbardziej wiarygodny model przez wielokrotne losowe próbkowanie punktów danych i ocenianie, jak dobrze wybrane podzbiory pasują do potencjalnego modelu. RANSAC jest szczególnie przydatny w sytuacjach, gdzie mamy do czynienia z dużą liczbą outlierów.</p>
+</section>
+<section id="zastosowanie" class="level3">
+<h3 class="anchored" data-anchor-id="zastosowanie">Zastosowanie</h3>
+<p>Dopasowywanie modeli w danych zaszumionych ma szerokie zastosowanie – od analizy danych naukowych, przez przetwarzanie sygnałów, robotykę, do rozpoznawania wzorców w obrazach i danych wizyjnych.</p>
+<p>Wnioskowanie z danych zaszumionych jest kluczowym elementem w wielu obszarach nauki i technologii, a zrozumienie i efektywne stosowanie odpowiednich metod może znacząco wpłynąć na jakość i wiarygodność wyników analiz.</p>
+</section>
+</section>
+<section id="algorytm-ransac-1" class="level2">
+<h2 class="anchored" data-anchor-id="algorytm-ransac-1">Algorytm RANSAC</h2>
+<p>Algorytm RANSAC można streścić następująco, cytując Wikipedię:</p>
+<ol type="1">
+<li>Wybierz losowy podzbiór oryginalnych danych. Nazwij ten podzbiór hipotetycznymi wartościami “inlierów”.</li>
+<li>Następnie model jest fitowany do wybranych inlierów.</li>
+<li>Wszystkie dane są następnie testowane względem dopasowanego modelu. Wszystkie punkty danych (oryginalnych danych), które dobrze pasują do oszacowanego modelu, zgodnie z pewną funkcją straty specyficzną dla modelu, nazywane są zbiorem konsensusu (tj. zbiorem wartości nieodstających (inliers) dla modelu).</li>
+<li>Oszacowany model jest dość dobry, jeśli wystarczająco wiele punktów danych zostało sklasyfikowanych jako część zestawu konsensusu.</li>
+<li>Model może zostać ulepszony poprzez ponowne oszacowanie go przy użyciu wszystkich punktów danych zestawu konsensusu. Jakość dopasowania jako miara tego, jak dobrze model pasuje do zestawu konsensusu, zostanie wykorzystana do wyostrzenia dopasowania modelu w miarę upływu iteracji (np. poprzez ustawienie tej miary jako kryterium jakości dopasowania w następnej iteracji).</li>
+</ol>
+<p>Innymi słowy. W algorytmie RANSAC iteracyjnie losujemy próbki, dopasowujemy model, a następnie sprawdzamy jak bardzo ten model odstaje od wszystkich próbek. Im mniej odstaje - tym lepiej. Najmniej odstająca wersja modelu - to nasz fit.</p>
+</section>
+<section id="zadanie" class="level2">
+<h2 class="anchored" data-anchor-id="zadanie">Zadanie:</h2>
+<p>Zaimplementuj algorytm RANSAC w Pythonie dla danych 1D (tablica wartości). Przetestuj jego działanie dla różnych parametrów oraz różnych ilości iteracji.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ransac(X : np.ndarray, y : np.ndarray, num_samples : <span class="bu">int</span>, max_iters : <span class="bu">int</span>, threshold : <span class="bu">float</span>):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="przepis-na-ransaca" class="level3">
+<h3 class="anchored" data-anchor-id="przepis-na-ransaca">Przepis na RANSACa:</h3>
+<ol type="1">
+<li><p>Zainicjalizować dwie zmienne: best_model, best_ratio z rozsądnymi parametrami</p></li>
+<li><p>Dla każdej z iteracji:</p>
+<p>2.1. Wylosować próbki z X oraz y (wzajemnie sobie odpowiadających), o ilości num_samples</p>
+<p>2.2. Wyznaczamy parametry modelu tylko i wyłącznie z wylosowanych próbek</p>
+<p>2.3. Wyznaczamy nowe wartości y bazując na modelu i na wszystkich X</p>
+<p>2.4. Obliczamy błąd kwadratowy między wyznaczonymi wartościami a y</p>
+<p>2.5. Liczymy ile pkt ma błąd mniejszy niż threshold</p>
+<p>2.6. Wyznaczamy stosunek ilości pkt spełniających warunek z 2.5 do ogółu =&gt; current_ratio</p>
+<p>2.7. Jeżeli current_ratio &gt; best_ratio:</p>
+<pre><code> 2.7.1. best_model = current_model
+
+ 2.7.2. best_ratio = current_ratio</code></pre>
+<p>2.8 sprawdzamy iteracje petli, czy nie osiagnelismy max_iters</p></li>
+<li><p>Zwracamy nasz best_model</p></li>
+</ol>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -553,6 +629,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../labs/lab3.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Laboratorium 3</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
