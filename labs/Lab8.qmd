@@ -48,3 +48,30 @@ Zaimplementuj algorytm RANSAC w Pythonie dla danych 1D (tablica wartości). Prze
 def ransac(X : np.ndarray, y : np.ndarray, num_samples : int, max_iters : int, threshold : float):
     pass
 ```
+
+### Przepis na RANSACa:
+
+1. Zainicjalizować dwie zmienne: best_model, best_ratio z rozsądnymi parametrami
+2. Dla każdej z iteracji:
+
+    2.1. Wylosować próbki z X oraz y (wzajemnie sobie odpowiadających), o ilości num_samples
+
+    2.2. Wyznaczamy parametry modelu tylko i wyłącznie z wylosowanych próbek
+
+    2.3. Wyznaczamy nowe wartości y bazując na modelu i na wszystkich X
+
+    2.4. Obliczamy błąd kwadratowy między wyznaczonymi wartościami a y
+
+    2.5. Liczymy ile pkt ma błąd mniejszy niż threshold
+
+    2.6. Wyznaczamy stosunek ilości pkt spełniających warunek z 2.5 do ogółu => current_ratio
+
+    2.7. Jeżeli current_ratio > best_ratio:
+
+        2.7.1. best_model = current_model
+
+        2.7.2. best_ratio = current_ratio
+
+    2.8 sprawdzamy iteracje petli, czy nie osiagnelismy max_iters
+
+3. Zwracamy nasz best_model
